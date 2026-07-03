@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parte II · Estructura Curricular — Plan de Estudio 2022</title>
+<style>
+  :root{
+    --guinda:#611232;
+    --guinda-2:#7a1a42;
+    --oro:#b8860b;
+    --oro-claro:#d9a441;
+    --crema:#faf7f2;
+    --tinta:#2b2b2b;
+    --gris:#5c5c5c;
+    --linea:#e4ddd3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:#3a3a3a;color:var(--tinta);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .deck{width:100vw;height:100vh;position:relative}
+  .slide{
+    position:absolute;inset:0;
+    padding:5.2vh 6vw;
+    background:var(--crema);
+    display:none;flex-direction:column;
+    animation:fade .35s ease;
+  }
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* top ribbon */
+  .ribbon{position:absolute;top:0;left:0;right:0;height:8px;
+    background:linear-gradient(90deg,var(--guinda),var(--oro))}
+  .kicker{
+    font-size:1.5vh;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--oro);font-weight:700;margin-bottom:1.4vh
+  }
+  h1{color:var(--guinda);font-size:5.4vh;line-height:1.08;margin-bottom:2vh;font-weight:800}
+  h2{color:var(--guinda);font-size:4vh;line-height:1.12;margin-bottom:2.4vh;font-weight:800}
+  h3{color:var(--guinda-2);font-size:2.5vh;margin:1.6vh 0 .8vh;font-weight:700}
+  p,li{font-size:2.35vh;line-height:1.5;color:var(--tinta)}
+  .lead{font-size:2.7vh;color:var(--gris);line-height:1.5;max-width:60ch}
+  ul{list-style:none;margin-top:1vh}
+  ul li{position:relative;padding-left:3.2vh;margin-bottom:1.5vh}
+  ul li::before{content:"";position:absolute;left:0;top:1vh;
+    width:1.3vh;height:1.3vh;border-radius:3px;background:var(--oro);transform:rotate(45deg)}
+  .content{flex:1;display:flex;flex-direction:column;justify-content:center}
+  strong{color:var(--guinda)}
+
+  /* footer */
+  .foot{position:absolute;bottom:2.4vh;left:6vw;right:6vw;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:1.5vh;color:var(--gris);border-top:1px solid var(--linea);padding-top:1.2vh}
+  .foot .tag{color:var(--guinda);font-weight:700}
+
+  /* cover */
+  .cover{background:linear-gradient(135deg,var(--guinda) 0%,#3d0b20 100%);color:#fff;justify-content:center}
+  .cover .ribbon{background:linear-gradient(90deg,var(--oro),var(--oro-claro))}
+  .cover .kicker{color:var(--oro-claro)}
+  .cover h1{color:#fff;font-size:6.6vh;max-width:20ch}
+  .cover p{color:#f0e6d8;font-size:2.8vh;margin-top:2vh;max-width:52ch}
+  .cover .meta{margin-top:5vh;font-size:1.9vh;color:#d9c4b0;letter-spacing:.05em}
+  .cover .foot{color:#caa9a9;border-top-color:rgba(255,255,255,.15)}
+  .cover .foot .tag{color:var(--oro-claro)}
+
+  /* section divider */
+  .divider{background:linear-gradient(135deg,var(--guinda-2),var(--guinda));color:#fff;justify-content:center}
+  .divider .kicker{color:var(--oro-claro)}
+  .divider h1{color:#fff}
+  .divider .lead{color:#f0e6d8}
+  .divider .num{font-size:12vh;font-weight:800;color:rgba(255,255,255,.12);position:absolute;top:6vh;right:7vw;line-height:1}
+  .divider .foot{color:#caa9a9;border-top-color:rgba(255,255,255,.15)}
+  .divider .foot .tag{color:var(--oro-claro)}
+
+  /* grids & cards */
+  .grid{display:grid;gap:2vh;margin-top:1vh}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .card{background:#fff;border:1px solid var(--linea);border-left:5px solid var(--oro);
+    border-radius:10px;padding:2.2vh 2.4vh;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .card h3{margin-top:0;color:var(--guinda)}
+  .card p{font-size:2vh;color:var(--gris);line-height:1.4}
+  .card.guinda{border-left-color:var(--guinda)}
+  .pill{display:inline-block;background:var(--guinda);color:#fff;font-size:1.7vh;
+    padding:.5vh 1.6vh;border-radius:999px;font-weight:700;margin-bottom:1.2vh}
+  .disc{display:inline-block;background:#f2ead9;color:var(--guinda);font-size:1.75vh;
+    font-weight:600;padding:.5vh 1.4vh;border-radius:6px;margin:.4vh .5vh 0 0}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:3vw;flex:1;align-items:center}
+  .note{background:#f4efe6;border-radius:10px;padding:2vh 2.4vh;font-size:2vh;color:var(--gris);margin-top:2vh}
+  .note strong{color:var(--guinda)}
+
+  /* numbered flow for programas */
+  .flow{display:flex;align-items:stretch;gap:1.2vw;margin-top:2vh}
+  .flow .step{flex:1;background:#fff;border:1px solid var(--linea);border-top:5px solid var(--oro);
+    border-radius:10px;padding:2vh 1.6vh;text-align:center}
+  .flow .step .n{display:inline-block;width:4vh;height:4vh;line-height:4vh;border-radius:50%;
+    background:var(--guinda);color:#fff;font-weight:800;font-size:2vh;margin-bottom:1vh}
+  .flow .step h3{font-size:2vh;margin:0 0 .6vh}
+  .flow .step p{font-size:1.7vh;color:var(--gris)}
+  .flow .arrow{align-self:center;color:var(--oro);font-size:3vh;font-weight:800}
+
+  /* fases table */
+  .fases{display:grid;grid-template-columns:repeat(6,1fr);gap:1vh;margin-top:2vh}
+  .fase{background:#fff;border:1px solid var(--linea);border-radius:10px;overflow:hidden;text-align:center}
+  .fase .h{background:var(--guinda);color:#fff;padding:1.2vh;font-weight:800;font-size:2vh}
+  .fase .b{padding:1.6vh 1vh}
+  .fase .b .lvl{font-weight:700;color:var(--guinda-2);font-size:1.9vh;display:block;margin-bottom:.6vh}
+  .fase .b .gr{font-size:1.7vh;color:var(--gris)}
+
+  /* progress dots */
+  .progress{position:absolute;bottom:.7vh;left:50%;transform:translateX(-50%);
+    font-size:1.4vh;color:#8a8a8a}
+
+  .hint{position:fixed;bottom:12px;right:16px;color:#bbb;font-size:12px;z-index:50;
+    background:rgba(0,0,0,.35);padding:4px 10px;border-radius:20px}
+  @media print{.hint{display:none}}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1. PORTADA -->
+  <section class="slide cover active">
+    <div class="ribbon"></div>
+    <div class="kicker">Plan de Estudio para la Educación Preescolar, Primaria y Secundaria · 2022</div>
+    <h1>Parte II<br>Estructura Curricular</h1>
+    <p>Los cimientos, componentes y organización del currículo de la Nueva Escuela Mexicana.</p>
+    <div class="meta">Nueva Escuela Mexicana · Educación Básica · Páginas 81–153</div>
+    <div class="foot"><span class="tag">Presentación para el colectivo docente</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 2. MAPA / ÍNDICE -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Ruta de la presentación</div>
+    <h2>¿Qué veremos hoy?</h2>
+    <div class="content">
+      <div class="grid g3">
+        <div class="card guinda"><h3>6 · Fundamentos</h3><p>Comunidad, aprendizaje y evaluación como pilares del currículo.</p></div>
+        <div class="card guinda"><h3>7 · Perfil de egreso</h3><p>Los rasgos globales que desarrollan las y los estudiantes.</p></div>
+        <div class="card guinda"><h3>8 · Organización curricular</h3><p>Ejes articuladores, campos formativos, programas y fases.</p></div>
+      </div>
+      <div class="note"><strong>Idea central:</strong> la <strong>comunidad</strong> es el núcleo integrador; el <strong>aprendizaje</strong> es una experiencia formativa situada en la realidad; y el currículo se organiza para dar sentido humano a lo que se enseña.</div>
+    </div>
+    <div class="foot"><span class="tag">Índice</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 3. DIVISOR 6 -->
+  <section class="slide divider">
+    <div class="ribbon"></div>
+    <div class="num">6</div>
+    <div class="kicker">Apartado 6</div>
+    <h1>Fundamentos de la<br>propuesta curricular</h1>
+    <p class="lead">La noción de <strong style="color:#fff">aprendizaje</strong> y <strong style="color:#fff">comunidad</strong> como pilares que sustentan la estructura formal del currículo.</p>
+    <div class="foot"><span class="tag">6 · Fundamentos</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 4. 6.1 COMUNIDAD -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">6.1 · Fundamentos</div>
+    <h2>La comunidad como núcleo integrador</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:2vh">La escuela se entiende como el <strong>núcleo de las relaciones pedagógicas</strong> dentro de una comunidad (urbana o rural; local, nacional y mundial) a la que sirve y que le sirve.</p>
+      <h3>Tres razones para poner a la comunidad en el centro:</h3>
+      <ul>
+        <li><strong>1.</strong> La escuela no está aislada: su razón de ser se relaciona con la vida de quienes acuden a ella con sus lenguas, costumbres e identidades.</li>
+        <li><strong>2.</strong> Los conocimientos y valores solo se incorporan de forma integral en la <strong>vida cotidiana</strong> de la comunidad donde habitan.</li>
+        <li><strong>3.</strong> La escuela debe considerar los <strong>saberes socialmente construidos</strong> por las y los estudiantes en la vida comunitaria.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">6.1 · Comunidad</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 5. 6.2 APRENDIZAJE -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">6.2 · Fundamentos</div>
+    <h2>El aprendizaje como experiencia formativa</h2>
+    <div class="content">
+      <ul>
+        <li>El aprendizaje <strong>no reside en la mente individual</strong>: es una acción que se ejerce en relación con otras personas, en contextos y con objetos y símbolos culturales.</li>
+        <li>El aprendizaje significativo ocurre cuando el contenido se vincula con el <strong>proyecto personal</strong> del estudiante y su mundo inmediato.</li>
+        <li>Se aprende participando en <strong>prácticas sociales</strong> de diversas comunidades; la comunidad escolar es una de ellas.</li>
+        <li>El papel de la <strong>didáctica</strong> es organizar la interacción entre el contenido (problemas, textos, teorías) y una tarea en una situación de la vida real.</li>
+      </ul>
+      <div class="note"><strong>De lo abstracto a lo concreto:</strong> proponer ideas generativas —problemas y preguntas fundamentales— en lugar de conocimientos enciclopédicos.</div>
+    </div>
+    <div class="foot"><span class="tag">6.2 · Aprendizaje</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 6. 6.3 EVALUACIÓN -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">6.3 · Fundamentos</div>
+    <h2>La evaluación de los aprendizajes</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">La evaluación forma parte del proceso formativo y de la relación pedagógica docente–estudiante. <strong>Calificar no es evaluar.</strong> Se distinguen dos momentos:</p>
+      <div class="grid g2">
+        <div class="card guinda">
+          <span class="pill">Momento 1</span>
+          <h3>Evaluación formativa</h3>
+          <p>Seguimiento del proceso de aprendizaje. Retroalimenta mediante el diálogo y la autorreflexión; <strong>trabaja con el error</strong> como estrategia didáctica para mejorar.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Momento 2</span>
+          <h3>Acreditación</h3>
+          <p>Sustenta calificaciones y certificados a partir del <strong>juicio docente</strong> sobre todo el proceso. No es sumar tareas ni promediar al final.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="tag">6.3 · Evaluación</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 7. DIVISOR 7 -->
+  <section class="slide divider">
+    <div class="ribbon"></div>
+    <div class="num">7</div>
+    <div class="kicker">Apartado 7</div>
+    <h1>Perfil de egreso</h1>
+    <p class="lead">Los <strong style="color:#fff">rasgos globales del aprendizaje</strong> que las y los estudiantes desarrollan a lo largo de preescolar, primaria y secundaria.</p>
+    <div class="foot"><span class="tag">7 · Perfil de egreso</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 8. PERFIL DE EGRESO CONTENIDO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">7 · Perfil de egreso · Al egresar, las y los estudiantes…</div>
+    <h2>Rasgos globales del aprendizaje</h2>
+    <div class="content">
+      <div class="grid g2" style="gap:1.4vh">
+        <div class="card"><p>Se reconocen <strong>ciudadanas y ciudadanos</strong> con derecho a una vida digna y a construir su identidad.</p></div>
+        <div class="card"><p>Viven y valoran la <strong>diversidad</strong> étnica, cultural, lingüística, sexual, social y de género.</p></div>
+        <div class="card"><p>Reconocen la <strong>igualdad</strong> de derechos entre mujeres y hombres, libres de violencia y discriminación.</p></div>
+        <div class="card"><p>Desarrollan un <strong>pensamiento propio y crítico</strong> para juzgar su realidad y oponerse a la injusticia.</p></div>
+        <div class="card"><p>Se perciben como <strong>parte de la naturaleza</strong> y cuidan su salud y la salud planetaria.</p></div>
+        <div class="card"><p>Interpretan fenómenos con <strong>fundamentos científicos y saberes comunitarios</strong> y resuelven problemas.</p></div>
+        <div class="card"><p>Dialogan y <strong>cooperan</strong>, aprovechando la cultura digital de manera ética y responsable.</p></div>
+        <div class="card"><p>Valoran las <strong>ciencias y humanidades</strong> para proponer transformaciones solidarias en su comunidad.</p></div>
+      </div>
+    </div>
+    <div class="foot"><span class="tag">7 · Perfil de egreso</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 9. DIVISOR 8 -->
+  <section class="slide divider">
+    <div class="ribbon"></div>
+    <div class="num">8</div>
+    <div class="kicker">Apartado 8</div>
+    <h1>Organización curricular</h1>
+    <p class="lead">Los componentes se articulan en <strong style="color:#fff">niveles de desagregación</strong>: del centro (fundamentos) hacia afuera (programas).</p>
+    <div class="foot"><span class="tag">8 · Organización curricular</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 10. COMPONENTES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8 · Organización curricular</div>
+    <h2>Los componentes del currículo</h2>
+    <div class="content">
+      <div class="flow">
+        <div class="step"><span class="n">1</span><h3>Aprendizaje / Comunidad</h3><p>El núcleo y el perfil de egreso</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">2</span><h3>7 Ejes articuladores</h3><p>Temáticas de relevancia social</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">3</span><h3>4 Campos formativos</h3><p>Integran el conocimiento</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">4</span><h3>Programas y Fases</h3><p>Contenidos y grados</p></div>
+      </div>
+      <div class="note"><strong>Cómo se conectan:</strong> los <strong>ejes articuladores</strong> cruzan y conectan los contenidos de los <strong>campos formativos</strong> con la realidad cotidiana; la <strong>didáctica</strong> del docente es el punto de encuentro entre ambos.</div>
+    </div>
+    <div class="foot"><span class="tag">8 · Componentes</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 11. 8.1 EJES INTRO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.1 · Organización curricular</div>
+    <h2>Ejes articuladores del currículo</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:2vh">Son <strong>siete temáticas de relevancia social</strong> que expresan los rasgos propiamente humanos de la formación ciudadana en una sociedad democrática, plural y diversa.</p>
+      <h3>¿Qué hacen los ejes?</h3>
+      <ul>
+        <li><strong>Conectan</strong> contenidos de diferentes disciplinas dentro de un campo formativo.</li>
+        <li><strong>Vinculan</strong> la enseñanza y el aprendizaje con la realidad cotidiana de las y los estudiantes.</li>
+        <li>Pueden abordarse en <strong>más de un campo</strong>; el docente decide cuál trabajar según su contexto y saberes.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">8.1 · Ejes articuladores</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 12. LOS 7 EJES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.1 · Los siete ejes articuladores</div>
+    <h2>Siete ejes que cruzan todo el currículo</h2>
+    <div class="content">
+      <div class="grid g3" style="gap:1.6vh">
+        <div class="card"><h3>1 · Inclusión</h3></div>
+        <div class="card"><h3>2 · Pensamiento crítico</h3></div>
+        <div class="card"><h3>3 · Interculturalidad crítica</h3></div>
+        <div class="card"><h3>4 · Igualdad de género</h3></div>
+        <div class="card"><h3>5 · Vida saludable</h3></div>
+        <div class="card"><h3>6 · Lectura y escritura</h3></div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr;margin-top:1.6vh">
+        <div class="card guinda"><h3>7 · Artes y experiencias estéticas</h3></div>
+      </div>
+    </div>
+    <div class="foot"><span class="tag">8.1 · Los 7 ejes</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 13. EJE 1 INCLUSIÓN -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 1 · Ejes articuladores</div>
+    <h2>Inclusión</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Eje de carácter <strong>decolonial</strong>: comprender la lógica colonial que opera en la vida cotidiana y generar estados de desigualdad.</p>
+      <ul>
+        <li>Ir <strong>más allá de incorporar</strong> grupos a la escuela: si falta una o uno por clase, sexo, género, etnia, lengua, capacidad o religión, <strong>no están incluidos todas y todos</strong>.</li>
+        <li>Reconocer el valor de la cultura universal <strong>junto con</strong> los saberes ancestrales de comunidades indígenas y afromexicanas.</li>
+        <li>Vincular la realidad de estudiantes con <strong>discapacidad o aptitudes sobresalientes</strong> con toda la comunidad escolar.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 1 · Inclusión</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 14. EJE 2 PENSAMIENTO CRÍTICO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 2 · Ejes articuladores</div>
+    <h2>Pensamiento crítico</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">La capacidad de <strong>interrogar al mundo</strong> y oponerse a la injusticia, la desigualdad, el racismo y toda forma que excluye e invisibiliza a las personas.</p>
+      <ul>
+        <li>Desarrollar un <strong>juicio propio</strong> y autonomía para pensar de manera razonada y argumentada.</li>
+        <li>Acercarse a la realidad desde diferentes perspectivas, interrogarla y contribuir a <strong>transformarla</strong>.</li>
+        <li>Valorar y amar el conocimiento por el <strong>sentido que da a la vida</strong> propia y a la comunidad, no por el beneficio a cambio.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 2 · Pensamiento crítico</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 15. EJE 3 INTERCULTURALIDAD -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 3 · Ejes articuladores</div>
+    <h2>Interculturalidad crítica</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Sujetos, comunidades e identidades diversas que <strong>interactúan y dialogan</strong> en un marco de <strong>relaciones asimétricas y de poder</strong>.</p>
+      <ul>
+        <li>Reconoce que las relaciones de género, etnia, clase, lengua y capacidad se expresan en <strong>relaciones de poder desiguales</strong>.</li>
+        <li>Se diferencia del <strong>multiculturalismo</strong> (coexistencia sin interrelación); propone un <strong>diálogo de saberes</strong>.</li>
+        <li>Reconoce a las comunidades indígenas y afromexicanas como <strong>matriz epistémica</strong> de la diversidad nacional.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 3 · Interculturalidad crítica</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 16. EJE 4 GÉNERO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 4 · Ejes articuladores</div>
+    <h2>Igualdad de género</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Mujeres y hombres son <strong>iguales en derechos</strong>, con capacidad de decisión, acción y autonomía. La igualdad de género es una <strong>condición histórica</strong>, no un rasgo biológico.</p>
+      <ul>
+        <li>Cuestionar prácticas institucionalizadas que asignan roles y perpetúan desigualdades en el aula.</li>
+        <li>Emplear <strong>lenguaje incluyente</strong> y materiales no sexistas; visibilizar el papel de las niñas y mujeres en todas las disciplinas.</li>
+        <li>Impulsar el <strong>liderazgo de las niñas</strong> en todas las áreas, y prevenir la violencia de género.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 4 · Igualdad de género</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 17. EJE 5 VIDA SALUDABLE -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 5 · Ejes articuladores</div>
+    <h2>Vida saludable</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">La salud es un <strong>hecho social, histórico y territorial</strong>, que se experimenta en el cuerpo según las condiciones concretas de vida de cada persona.</p>
+      <ul>
+        <li>Comprender las relaciones entre <strong>medio ambiente</strong> y la dinámica social, económica y cultural de las comunidades.</li>
+        <li>Reconocer las desigualdades que expresa el cuerpo (desnutrición, sobrepeso) en una sociedad donde el alimento es mercancía.</li>
+        <li>Valorar los <strong>saberes ancestrales</strong> de salud (herbolaria, partería) junto con la medicina alópata; asumir un papel activo en el cuidado de sí.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 5 · Vida saludable</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 18. EJE 6 LECTURA Y ESCRITURA -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 6 · Ejes articuladores</div>
+    <h2>Apropiación de las culturas a través de la lectura y la escritura</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">México es una <strong>comunidad de comunidades</strong>: 68 agrupaciones lingüísticas y 364 variaciones. Leer y escribir es un <strong>derecho</strong> y un rasgo de ciudadanía activa.</p>
+      <ul>
+        <li>Leer no es solo decodificar: <strong>produce sentidos</strong> y pone en relación con la otredad y la propia identidad.</li>
+        <li>Democratizar la lectura y <strong>revitalizar las lenguas maternas</strong> en todos los ámbitos de la vida.</li>
+        <li>La escritura implica seleccionar y organizar ideas, cuidar la redacción y <strong>revisar</strong> el texto producido.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 6 · Lectura y escritura</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 19. EJE 7 ARTES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Eje 7 · Ejes articuladores</div>
+    <h2>Artes y experiencias estéticas</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Recupera el <strong>valor formativo</strong> de las experiencias artísticas y estéticas: el arte como expresión, cultura, comunicación y <strong>forma de conocer</strong>.</p>
+      <ul>
+        <li>Rompe el dualismo <strong>razón vs. sentimientos</strong>: no hay pensamiento genuino sin imaginación, y los afectos son la argamasa del aprendizaje.</li>
+        <li>Acerca a la música, danza, pintura y expresiones populares y decoloniales, más allá del arte canónico.</li>
+        <li>Sirve para <strong>explorar y representar</strong> contenidos de las ciencias y las humanidades desde lo sensible.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">Eje 7 · Artes y experiencias estéticas</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 20. 8.2 CAMPOS INTRO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.2 · Organización curricular</div>
+    <h2>Campos formativos</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:2vh">Organizan el currículo para <strong>integrar el conocimiento</strong> de diversas disciplinas y ofrecer una visión más compleja de la realidad.</p>
+      <ul>
+        <li>Un campo <strong>no es la suma</strong> de sus contenidos: es el trasfondo que da sentido a la pluralidad de saberes.</li>
+        <li>Sustituyen el modelo por <strong>asignaturas</strong> (que fragmenta) por una perspectiva <strong>interdisciplinaria</strong>.</li>
+        <li>Integrar saberes es un <strong>proceso</strong>, no un producto final.</li>
+      </ul>
+      <div class="note"><strong>Importante:</strong> el cambio a campos y fases es de orden <strong>pedagógico-didáctico</strong> y respeta los aspectos laborales y de contratación docente.</div>
+    </div>
+    <div class="foot"><span class="tag">8.2 · Campos formativos</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 21. LOS 4 CAMPOS -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.2 · Los cuatro campos formativos</div>
+    <h2>Cuatro campos que integran el saber</h2>
+    <div class="content">
+      <div class="grid g2" style="gap:1.8vh">
+        <div class="card guinda"><h3>I · Lenguajes</h3><p>Español, lenguas indígenas, inglés y lenguajes artísticos.</p></div>
+        <div class="card guinda"><h3>II · Saberes y Pensamiento Científico</h3><p>Comprender y explicar fenómenos naturales y su relación con lo social.</p></div>
+        <div class="card guinda"><h3>III · Ética, Naturaleza y Sociedades</h3><p>Relación del ser humano con la sociedad y la naturaleza.</p></div>
+        <div class="card guinda"><h3>IV · De lo Humano y lo Comunitario</h3><p>Construcción de la identidad y la vida en comunidad.</p></div>
+      </div>
+    </div>
+    <div class="foot"><span class="tag">8.2 · Los 4 campos</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 22. CAMPO I LENGUAJES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Campo I · Campos formativos</div>
+    <h2>Lenguajes</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Construcciones cognitivas y sociales para <strong>expresar, pensar, comunicar y nombrar el mundo</strong> desde el nacimiento.</p>
+      <ul>
+        <li>Vincula español, lenguas indígenas, inglés, <strong>lenguajes artísticos</strong> y Lengua de Señas Mexicana.</li>
+        <li>Se aprende mediante oralidad, lectura, escritura, sensorialidad, percepción y composición.</li>
+        <li>Favorece la <strong>identidad</strong> personal y colectiva y el diálogo intercultural e inclusivo.</li>
+      </ul>
+      <div class="note">En <strong>secundaria</strong>: <span class="disc">Español</span><span class="disc">Inglés</span><span class="disc">Artes</span></div>
+    </div>
+    <div class="foot"><span class="tag">Campo I · Lenguajes</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 23. CAMPO II SABERES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Campo II · Campos formativos</div>
+    <h2>Saberes y Pensamiento Científico</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Comprender y explicar los <strong>fenómenos naturales</strong> (cuerpo, seres vivos, materia, energía, salud, ambiente, tecnología) desde diversos saberes.</p>
+      <ul>
+        <li>La ciencia es una construcción cultural más, no superior a otros sistemas de conocimiento.</li>
+        <li>Forma capacidad para <strong>indagar, interpretar, modelizar, argumentar y explicar</strong> el entorno.</li>
+        <li>Reconoce diversos métodos y contrarresta la idea de un <strong>método único</strong>.</li>
+      </ul>
+      <div class="note">En <strong>secundaria</strong>: <span class="disc">Matemáticas</span><span class="disc">Biología</span><span class="disc">Física</span><span class="disc">Química</span></div>
+    </div>
+    <div class="foot"><span class="tag">Campo II · Saberes y Pensamiento Científico</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 24. CAMPO III ÉTICA -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Campo III · Campos formativos</div>
+    <h2>Ética, Naturaleza y Sociedades</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">La relación del ser humano con la <strong>sociedad y la naturaleza</strong> desde la comprensión crítica de los procesos sociales, políticos, naturales y culturales.</p>
+      <ul>
+        <li>Construir una <strong>postura ética</strong> y una ciudadanía participativa, comunitaria y democrática.</li>
+        <li>Reconocer y respetar la <strong>dignidad y los derechos</strong> de todas las personas y las diversidades.</li>
+        <li>Desarrollar la conciencia <strong>histórica y geográfica</strong> y la responsabilidad con la naturaleza.</li>
+      </ul>
+      <div class="note">En <strong>secundaria</strong>: <span class="disc">Geografía</span><span class="disc">Historia</span><span class="disc">Formación Cívica y Ética</span></div>
+    </div>
+    <div class="foot"><span class="tag">Campo III · Ética, Naturaleza y Sociedades</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 25. CAMPO IV HUMANO -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Campo IV · Campos formativos</div>
+    <h2>De lo Humano y lo Comunitario</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1.6vh">Experiencias cognitivas, motrices, socioafectivas y creativas para la <strong>construcción de la identidad</strong> y el sentido de pertenencia a la comunidad.</p>
+      <ul>
+        <li>Conocimiento de sí y de los demás; comprensión de la <strong>vida emocional y afectiva</strong>.</li>
+        <li>Cuidado de la salud individual y comunitaria y del proyecto de vida.</li>
+        <li>Aborda vida saludable, inclusión, igualdad de género e interculturalidad en <strong>situaciones reales</strong>.</li>
+      </ul>
+      <div class="note">En <strong>secundaria</strong>: <span class="disc">Tecnología</span><span class="disc">Educación Física</span><span class="disc">Ed. Socioemocional / Tutoría</span></div>
+    </div>
+    <div class="foot"><span class="tag">Campo IV · De lo Humano y lo Comunitario</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 26. 8.3 PROGRAMAS -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.3 · Organización curricular</div>
+    <h2>Programas de estudio y codiseño</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:1vh">Del programa nacional a la planeación en el aula, mediante la <strong>contextualización</strong> y el <strong>codiseño</strong> del colectivo docente.</p>
+      <div class="flow">
+        <div class="step"><span class="n">1</span><h3>Programa sintético</h3><p>Contenidos nacionales (base común)</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">2</span><h3>Apropiación y contextualización</h3><p>Trabajo del Consejo Técnico Escolar</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">3</span><h3>Programa analítico</h3><p>+ contenidos locales (codiseño)</p></div>
+        <div class="arrow">›</div>
+        <div class="step"><span class="n">4</span><h3>Planeación didáctica</h3><p>Trabajo del docente en el aula</p></div>
+      </div>
+      <div class="note">Los programas sintéticos son <strong>incompletos por definición</strong>: se enriquecen con los temas y asuntos de cada comunidad.</div>
+    </div>
+    <div class="foot"><span class="tag">8.3 · Programas de estudio</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 27. 8.4 FASES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">8.4 · Organización curricular</div>
+    <h2>Fases de aprendizaje</h2>
+    <div class="content">
+      <p class="lead" style="margin-bottom:.5vh">De los 0 a los 15 años: <strong>6 fases y 12 grados</strong>. Priorizan la continuidad del proceso formativo por encima de la edad cronológica.</p>
+      <div class="fases">
+        <div class="fase"><div class="h">Fase 1</div><div class="b"><span class="lvl">Inicial</span><span class="gr">0 a 2 años 11 meses</span></div></div>
+        <div class="fase"><div class="h">Fase 2</div><div class="b"><span class="lvl">Preescolar</span><span class="gr">1º · 2º · 3º</span></div></div>
+        <div class="fase"><div class="h">Fase 3</div><div class="b"><span class="lvl">Primaria</span><span class="gr">1º · 2º</span></div></div>
+        <div class="fase"><div class="h">Fase 4</div><div class="b"><span class="lvl">Primaria</span><span class="gr">3º · 4º</span></div></div>
+        <div class="fase"><div class="h">Fase 5</div><div class="b"><span class="lvl">Primaria</span><span class="gr">5º · 6º</span></div></div>
+        <div class="fase"><div class="h">Fase 6</div><div class="b"><span class="lvl">Secundaria</span><span class="gr">1º · 2º · 3º</span></div></div>
+      </div>
+      <div class="note">Los contenidos se leen <strong>como un todo</strong>; cada escuela define el orden y jerarquía según sus necesidades.</div>
+    </div>
+    <div class="foot"><span class="tag">8.4 · Fases de aprendizaje</span><span>Parte II · Estructura Curricular</span></div>
+  </section>
+
+  <!-- 28. CIERRE -->
+  <section class="slide divider">
+    <div class="ribbon"></div>
+    <div class="kicker">Síntesis para el aula</div>
+    <h1>Para llevar al aula</h1>
+    <div class="content" style="flex:0">
+      <ul style="margin-top:2vh">
+        <li>La <strong style="color:#fff">comunidad</strong> es el punto de partida y de llegada de lo que enseñamos.</li>
+        <li>Los <strong style="color:#fff">7 ejes</strong> dan sentido humano y social a los <strong style="color:#fff">4 campos</strong> formativos.</li>
+        <li>La <strong style="color:#fff">didáctica y el codiseño docente</strong> contextualizan el currículo nacional.</li>
+        <li>Evaluar es <strong style="color:#fff">acompañar el proceso</strong>, no solo calificar el resultado.</li>
+      </ul>
+    </div>
+    <div class="foot"><span class="tag">¡Gracias!</span><span>Parte II · Estructura Curricular · Plan de Estudio 2022</span></div>
+  </section>
+
+</div>
+
+<div class="hint">← → · Espacio · F pantalla completa</div>
+<div class="progress" id="progress"></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const prog=document.getElementById('progress');
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    prog.textContent=(i+1)+' / '+slides.length;
+  }
+  function next(){show(i+1)}
+  function prev(){show(i-1)}
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev()}
+    else if(e.key==='Home'){show(0)}
+    else if(e.key==='End'){show(slides.length-1)}
+    else if(e.key.toLowerCase()==='f'){
+      if(!document.fullscreenElement){document.documentElement.requestFullscreen()}
+      else{document.exitFullscreen()}
+    }
+  });
+  document.addEventListener('click',e=>{
+    if(e.target.closest('.hint'))return;
+    const x=e.clientX/window.innerWidth;
+    x>0.35?next():prev();
+  });
+  show(0);
+</script>
+</body>
+</html>
