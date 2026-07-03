@@ -77,6 +77,9 @@
   .divider .num{font-size:12vh;font-weight:800;color:rgba(255,255,255,.12);position:absolute;top:6vh;right:7vw;line-height:1}
   .divider .foot{color:#caa9a9;border-top-color:rgba(255,255,255,.15)}
   .divider .foot .tag{color:var(--oro-claro)}
+  .divider p,.divider li{color:#f0e6d8}
+  .divider strong{color:#fff}
+  .divider ul li::before{background:var(--oro-claro)}
 
   /* grids & cards */
   .grid{display:grid;gap:2vh;margin-top:1vh}
@@ -118,8 +121,9 @@
   .progress{position:absolute;bottom:.7vh;left:50%;transform:translateX(-50%);
     font-size:1.4vh;color:#8a8a8a}
 
-  .hint{position:fixed;bottom:12px;right:16px;color:#bbb;font-size:12px;z-index:50;
-    background:rgba(0,0,0,.35);padding:4px 10px;border-radius:20px}
+  .hint{position:fixed;bottom:12px;right:16px;color:#eee;font-size:12px;z-index:50;
+    background:rgba(0,0,0,.55);padding:4px 12px;border-radius:20px;transition:opacity .6s}
+  .hint.hide{opacity:0;pointer-events:none}
   @media print{.hint{display:none}}
 </style>
 </head>
@@ -601,8 +605,11 @@
     slides.forEach((s,k)=>s.classList.toggle('active',k===i));
     prog.textContent=(i+1)+' / '+slides.length;
   }
-  function next(){show(i+1)}
-  function prev(){show(i-1)}
+  const hint=document.querySelector('.hint');
+  let hintTimer=setTimeout(()=>hint.classList.add('hide'),5000);
+  function hideHint(){clearTimeout(hintTimer);hint.classList.add('hide')}
+  function next(){show(i+1);hideHint()}
+  function prev(){show(i-1);hideHint()}
   document.addEventListener('keydown',e=>{
     if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();next()}
     else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev()}
