@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Circuitos digitales — Tarea 1 · Universidad Anáhuac</title>
+<title>Circuitos digitales · Tarea 1 · Universidad Anáhuac</title>
 <style>
   :root{
     --ink:#0e1b2e;
@@ -49,7 +49,7 @@
     color:var(--cyan);font-weight:600;margin-bottom:1.4vh
   }
   h1{color:var(--navy);font-size:5.2vh;line-height:1.07;margin-bottom:2vh;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
-  h2{color:var(--navy);font-size:4.1vh;line-height:1.1;margin-bottom:2vh;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+  h2{color:var(--navy);font-size:3.9vh;line-height:1.1;margin-bottom:1.6vh;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
   h3{color:var(--navy-2);font-size:2.35vh;margin:0 0 .7vh;font-weight:700}
   p,li{font-size:2.25vh;line-height:1.5;color:var(--ink)}
   .lead{font-size:2.6vh;color:var(--gris);line-height:1.48;max-width:62ch}
@@ -69,19 +69,17 @@
     border-top:1px solid var(--linea);padding-top:1.1vh}
   .foot .tag{color:var(--cyan)}
 
-  /* cover + accent (dark worlds) */
-  .cover,.accent{color:#eaf3fb;justify-content:center;overflow:hidden;padding-bottom:9vh}
-  .cover{background:radial-gradient(120% 120% at 82% 12%,#173863 0%,#0e2242 45%,#0a1a33 100%)}
-  .accent{background:radial-gradient(120% 120% at 18% 90%,#173863 0%,#0e2242 48%,#0a1a33 100%)}
-  .cover h1,.accent h1{color:#fff;max-width:22ch}
-  .cover .kicker,.accent .kicker{color:var(--cyan-hi)}
-  .cover p,.accent p,.accent li{color:#cddcec}
-  .cover strong,.accent strong{color:#fff}
-  .accent ul li::before{background:var(--cyan-hi)}
-  .cover .foot,.accent .foot{color:#8ba6c4;border-top-color:rgba(255,255,255,.16)}
-  .cover .foot .tag,.accent .foot .tag{color:var(--cyan-hi)}
+  /* cover (dark world) */
+  .cover{color:#eaf3fb;justify-content:center;overflow:hidden;padding-bottom:9vh;
+    background:radial-gradient(120% 120% at 82% 12%,#173863 0%,#0e2242 45%,#0a1a33 100%)}
+  .cover h1{color:#fff;max-width:22ch}
+  .cover .kicker{color:var(--cyan-hi)}
+  .cover p{color:#cddcec}
+  .cover strong{color:#fff}
+  .cover .foot{color:#8ba6c4;border-top-color:rgba(255,255,255,.16)}
+  .cover .foot .tag{color:var(--cyan-hi)}
   .bgart{position:absolute;inset:0;pointer-events:none;z-index:0}
-  .cover>*:not(.bgart):not(.ribbon):not(.foot),.accent>*:not(.bgart):not(.ribbon):not(.foot){position:relative;z-index:1}
+  .cover>*:not(.bgart):not(.ribbon):not(.foot){position:relative;z-index:1}
 
   /* cover data block */
   .title-tag{display:inline-block;font-family:var(--mono);font-size:1.6vh;letter-spacing:.06em;
@@ -95,80 +93,71 @@
   .datos dd{color:#eaf3fb}
   .fill{color:var(--cyan-hi);border-bottom:1px dashed rgba(63,208,232,.55);padding-bottom:.1vh}
 
-  /* grids & cards */
-  .grid{display:grid;gap:1.8vh}
-  .g2{grid-template-columns:1fr 1fr}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g4{grid-template-columns:repeat(4,1fr)}
-  .two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:3vw;flex:1;align-items:center}
-
+  /* cards */
   .card{background:var(--surface);border:1px solid var(--linea);border-top:4px solid var(--cyan);
     border-radius:12px;padding:2vh 2.1vh;box-shadow:0 4px 16px rgba(18,42,77,.05)}
-  .card .mtag{font-family:var(--mono);font-size:1.35vh;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--cyan);font-weight:600;display:block;margin-bottom:.7vh}
   .card p{font-size:1.95vh;color:var(--gris);line-height:1.42}
   .card.copper{border-top-color:var(--copper)}
-  .card.copper .mtag{color:var(--copper)}
 
   .note{background:var(--soft);border-left:4px solid var(--cyan);border-radius:8px;
-    padding:1.7vh 2vh;font-size:2vh;color:var(--gris);line-height:1.45;margin-top:1.8vh}
+    padding:1.6vh 2vh;font-size:1.95vh;color:var(--gris);line-height:1.45;margin-top:1.6vh}
   .note strong{color:var(--navy)}
-  .accent .note strong,.cover .note strong{color:#fff}
 
-  .disc{display:inline-block;background:#e7f2f6;color:var(--navy);font-size:1.65vh;
-    font-weight:600;padding:.45vh 1.2vh;border-radius:6px;margin:.5vh .5vh 0 0;
+  .disc{display:inline-block;background:#e7f2f6;color:var(--navy);font-size:1.6vh;
+    font-weight:600;padding:.4vh 1.1vh;border-radius:6px;margin:.5vh .5vh 0 0;
     font-family:var(--mono);letter-spacing:.02em}
 
   /* figures */
   .fig{background:var(--surface);border:1px solid var(--linea);border-radius:12px;
-    padding:2vh 2.2vh;box-shadow:0 4px 16px rgba(18,42,77,.05)}
+    padding:1.5vh 1.7vh;box-shadow:0 4px 16px rgba(18,42,77,.05);margin-top:1.1vh}
   .fig svg{display:block;width:100%;height:auto}
-  .cap{font-family:var(--mono);font-size:1.4vh;letter-spacing:.06em;color:var(--gris);
-    text-align:center;margin-top:1.2vh}
-  .wavepair{display:grid;grid-template-columns:1fr 1fr;gap:1.4vw}
-  .wavebox{border:1px solid var(--linea);border-radius:10px;padding:1.4vh 1.2vh .8vh}
-  .wavebox .cap{margin-top:.6vh}
-  .bits{font-family:var(--mono);text-align:center;letter-spacing:.35em;color:var(--cyan);
-    font-size:2.1vh;margin-top:1.6vh;font-weight:600}
+  .cap{font-family:var(--mono);font-size:1.35vh;letter-spacing:.05em;color:var(--gris);
+    text-align:center;margin-top:.8vh;line-height:1.3}
+  .wavepair{display:grid;grid-template-columns:1fr 1fr;gap:1.2vw}
+  .wavebox{border:1px solid var(--linea);border-radius:10px;padding:1.2vh 1vh .6vh}
+  .wavebox .cap{margin-top:.4vh}
 
-  .gates{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw;margin-top:1.6vh}
+  .gates{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;margin-top:.4vh}
   .gate{text-align:center}
-  .gate .glabel{font-family:var(--mono);font-size:1.55vh;letter-spacing:.1em;color:var(--navy);
-    font-weight:700;margin-top:.4vh}
+  .gate .glabel{font-family:var(--mono);font-size:1.5vh;letter-spacing:.1em;color:var(--navy);
+    font-weight:700;margin-top:.3vh}
 
   /* type diagrams */
-  .diagram{display:flex;align-items:center;gap:.7vw;margin:1.4vh 0 .6vh;flex-wrap:wrap}
-  .blk{font-family:var(--mono);font-size:1.55vh;font-weight:600;padding:.8vh 1.1vh;border-radius:8px;
+  .diagram{display:flex;align-items:center;gap:.6vw;margin:1vh 0 .7vh;flex-wrap:wrap}
+  .blk{font-family:var(--mono);font-size:1.5vh;font-weight:600;padding:.7vh 1vh;border-radius:8px;
     border:1.5px solid var(--linea);background:var(--soft);color:var(--navy);white-space:nowrap}
   .blk.core{background:var(--navy);color:#fff;border-color:var(--navy)}
   .blk.out{border-color:var(--cyan);color:var(--cyan);background:#eaf6f9}
-  .ar{color:var(--cyan);font-weight:800;font-size:2vh}
-  .fb{font-family:var(--mono);font-size:1.4vh;color:var(--copper);margin-top:.4vh;display:flex;align-items:center;gap:.5vw}
-  .fb .loop{font-size:2.1vh}
+  .ar{color:var(--cyan);font-weight:800;font-size:1.9vh}
+  .fb{font-family:var(--mono);font-size:1.35vh;color:var(--copper);margin-top:.3vh;display:flex;align-items:center;gap:.5vw}
+  .fb .loop{font-size:2vh}
 
-  /* application tiles */
-  .apps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5vh;margin-top:1vh}
+  /* dense two-topic panels (2 cuartillas) */
+  .two-col{display:grid;grid-template-columns:1.02fr .98fr;gap:2.8vw;flex:1;align-items:start}
+  .topic-h{display:flex;align-items:center;gap:1vh;margin-bottom:1vh}
+  .topic-h h3{margin:0;color:var(--navy);font-size:2.45vh}
+  .mnum{font-family:var(--mono);font-size:1.5vh;font-weight:700;color:#fff;
+    background:var(--cyan);border-radius:6px;padding:.3vh .95vh;letter-spacing:.05em;line-height:1.35}
+  .prose p{font-size:1.95vh;line-height:1.44}
+  .prose p+p{margin-top:1vh}
+  .feat{margin:.2vh 0 0}
+  .feat li{font-size:1.85vh;margin-bottom:.72vh;padding-left:2.6vh;line-height:1.34;color:var(--ink)}
+  .feat li::before{top:.8vh}
+  .tipos{display:flex;flex-direction:column;gap:1.3vh}
+  .tipos .card{padding:1.5vh 1.7vh}
+  .tipos .card h3{font-size:2.05vh;margin-bottom:.4vh}
+  .tipos .card p{font-size:1.72vh;color:var(--gris);line-height:1.34}
+  .appmini{display:grid;grid-template-columns:1fr 1fr;gap:1.1vh}
   .app{background:var(--surface);border:1px solid var(--linea);border-radius:12px;
-    padding:1.8vh 1.4vh;text-align:center;box-shadow:0 4px 14px rgba(18,42,77,.04)}
-  .app .ic{width:4.4vh;height:4.4vh;margin:0 auto .9vh;color:var(--cyan)}
+    padding:1.3vh 1vh;text-align:center;box-shadow:0 4px 14px rgba(18,42,77,.04)}
+  .app .ic{width:3.7vh;height:3.7vh;margin:0 auto .55vh;color:var(--cyan)}
   .app .ic svg{width:100%;height:100%;display:block}
-  .app h3{font-size:1.95vh;margin-bottom:.4vh}
-  .app p{font-size:1.6vh;color:var(--gris);line-height:1.32}
-
-  /* synthesis flow */
-  .flow{display:flex;align-items:stretch;justify-content:center;gap:.6vw;margin:2vh 0 .8vh;flex-wrap:wrap}
-  .flow .step{flex:1;min-width:15vh;background:rgba(255,255,255,.06);border:1px solid rgba(63,208,232,.28);
-    border-radius:12px;padding:1.8vh 1.2vh;text-align:center}
-  .flow .step .ic{width:4vh;height:4vh;margin:0 auto .8vh;color:var(--cyan-hi)}
-  .flow .step .ic svg{width:100%;height:100%}
-  .flow .step .bit{font-family:var(--mono);font-size:2.4vh;font-weight:700;color:var(--cyan-hi)}
-  .flow .step h3{color:#fff;font-size:1.7vh;margin-top:.3vh}
-  .flow .arrow{align-self:center;color:var(--cyan-hi);font-size:2.6vh;font-weight:800}
+  .app h3{font-size:1.78vh;margin-bottom:.25vh}
+  .app p{font-size:1.46vh;color:var(--gris);line-height:1.28}
 
   /* references */
-  .refs{margin-top:1vh;display:flex;flex-direction:column;gap:1.5vh}
+  .refs{margin-top:1vh;display:flex;flex-direction:column;gap:1.6vh}
   .ref{padding-left:3.2vh;text-indent:-3.2vh;font-size:2vh;line-height:1.45;color:var(--ink)}
-  .ref .n{font-family:var(--mono);color:var(--cyan);font-weight:700;margin-right:.6vh}
   .ref em{color:var(--navy-2)}
   .ref a{color:var(--cyan);word-break:break-all;text-decoration:none;border-bottom:1px solid rgba(11,147,184,.35)}
 
@@ -189,9 +178,9 @@
     .hint,.progress{display:none !important}
   }
   @media (max-width:820px){
-    h1{font-size:6vw}h2{font-size:5.2vw}
+    h1{font-size:6vw}h2{font-size:5vw}
     .two-col{grid-template-columns:1fr;gap:2.4vh}
-    .g3,.g4,.apps{grid-template-columns:1fr 1fr}
+    .appmini{grid-template-columns:1fr 1fr}
     .gates{grid-template-columns:1fr 1fr}
   }
 </style>
@@ -226,247 +215,183 @@
       <dt>Alumno(a)</dt><dd><span class="fill">[ Tu nombre completo ]</span></dd>
       <dt>Matrícula</dt><dd><span class="fill">[ Tu matrícula ]</span></dd>
       <dt>Profesor(a)</dt><dd><span class="fill">[ Nombre del profesor(a) ]</span></dd>
-      <dt>Fecha</dt><dd>12 de julio de 2026</dd>
+      <dt>Fecha</dt><dd>13 de julio de 2026</dd>
     </dl>
     <div class="foot"><span class="tag">Infografía · Electrónica digital</span><span>Circuitos digitales</span></div>
   </section>
 
-  <!-- 2 · ¿QUÉ SON? -->
+  <!-- 2 · CUARTILLA 1: FUNDAMENTOS -->
   <section class="slide">
     <div class="ribbon"></div>
-    <div class="kicker">01 · Definición</div>
-    <h2>¿Qué son los circuitos digitales?</h2>
+    <div class="kicker">Cuartilla 1 de 2 · Fundamentos</div>
+    <h2>Qué son y qué los caracteriza</h2>
+    <div class="content">
+      <div class="two-col">
+        <div class="prose">
+          <div class="topic-h"><span class="mnum">01</span><h3>¿Qué son los circuitos digitales?</h3></div>
+          <p>Son circuitos electrónicos que procesan información con <strong>señales discretas</strong>: la señal solo reconoce dos niveles de voltaje, que representan los dígitos binarios <strong>0 y 1</strong> (el <strong>bit</strong>, unidad mínima de información).</p>
+          <p>El circuito <strong>analógico</strong> maneja señales continuas, como la voz en un micrófono; el <strong>digital</strong> trabaja con datos cuantizados, por eso es preciso, estable y fácil de copiar sin degradarse. Toda la información se codifica en <strong>binario</strong>, agrupando bits en bytes.</p>
+          <div class="fig">
+            <div class="wavepair">
+              <div class="wavebox">
+                <svg viewBox="0 0 200 90" aria-hidden="true">
+                  <line x1="0" y1="45" x2="200" y2="45" stroke="#d8e2ee" stroke-width="1.5"/>
+                  <path d="M0 45 C 18 8 34 8 50 45 S 84 82 100 45 S 134 8 150 45 S 184 82 200 45" fill="none" stroke="#bd6a34" stroke-width="3.5"/>
+                </svg>
+                <div class="cap">Analógica · continua</div>
+              </div>
+              <div class="wavebox">
+                <svg viewBox="0 0 200 90" aria-hidden="true">
+                  <line x1="0" y1="45" x2="200" y2="45" stroke="#d8e2ee" stroke-width="1.5"/>
+                  <path d="M0 70 H26 V20 H66 V70 H106 V20 H146 V70 H186 V20 H200" fill="none" stroke="#0b93b8" stroke-width="3.5" stroke-linejoin="round"/>
+                </svg>
+                <div class="cap">Digital · 0 / 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="topic-h"><span class="mnum">02</span><h3>Principales características</h3></div>
+          <ul class="feat">
+            <li><strong>Dos estados:</strong> solo 0 y 1 (bajo y alto voltaje).</li>
+            <li><strong>Álgebra de Boole:</strong> se construyen con compuertas lógicas.</li>
+            <li><strong>Inmunidad al ruido:</strong> toleran interferencias sin perder datos.</li>
+            <li><strong>Precisión:</strong> el dato se procesa y se copia sin degradarse.</li>
+            <li><strong>Almacenamiento:</strong> la información binaria se guarda con facilidad.</li>
+            <li><strong>Integración (VLSI):</strong> millones de transistores en un solo chip.</li>
+          </ul>
+          <div class="fig">
+            <div class="gates">
+              <div class="gate">
+                <svg viewBox="0 0 100 70" aria-hidden="true">
+                  <path d="M28 12 H52 A23 23 0 0 1 52 58 H28 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
+                  <path d="M8 24 H28 M8 46 H28 M75 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
+                </svg>
+                <div class="glabel">AND</div>
+              </div>
+              <div class="gate">
+                <svg viewBox="0 0 100 70" aria-hidden="true">
+                  <path d="M20 12 Q36 35 20 58 Q52 58 76 35 Q52 12 20 12 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
+                  <path d="M8 24 H26 M8 46 H26 M76 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
+                </svg>
+                <div class="glabel">OR</div>
+              </div>
+              <div class="gate">
+                <svg viewBox="0 0 100 70" aria-hidden="true">
+                  <path d="M24 12 L24 58 L64 35 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
+                  <circle cx="70" cy="35" r="6" fill="none" stroke="#122a4d" stroke-width="3"/>
+                  <path d="M8 35 H24 M76 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
+                </svg>
+                <div class="glabel">NOT</div>
+              </div>
+              <div class="gate">
+                <svg viewBox="0 0 100 70" aria-hidden="true">
+                  <path d="M14 12 Q30 35 14 58" fill="none" stroke="#0b93b8" stroke-width="3"/>
+                  <path d="M26 12 Q42 35 26 58 Q58 58 82 35 Q58 12 26 12 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
+                  <path d="M8 24 H29 M8 46 H29 M82 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
+                </svg>
+                <div class="glabel">XOR</div>
+              </div>
+            </div>
+            <div class="cap">Compuertas lógicas: los bloques básicos de todo circuito digital</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="tag">Cuartilla 1 · Fundamentos</span><span>Circuitos digitales</span></div>
+  </section>
+
+  <!-- 3 · CUARTILLA 2: TIPOS Y APLICACIONES -->
+  <section class="slide">
+    <div class="ribbon"></div>
+    <div class="kicker">Cuartilla 2 de 2 · Clasificación y usos</div>
+    <h2>Tipos de circuitos y sus aplicaciones</h2>
     <div class="content">
       <div class="two-col">
         <div>
-          <p class="lead" style="margin-bottom:1.6vh">Son circuitos electrónicos que procesan información mediante <strong>señales discretas</strong>: en lugar de admitir cualquier valor, la señal reconoce solo dos niveles de voltaje.</p>
-          <ul>
-            <li>Esos dos estados —bajo y alto— se interpretan como los dígitos binarios <strong>0 y 1</strong>, la unidad mínima de información llamada <strong>bit</strong>.</li>
-            <li>A diferencia de un circuito <strong>analógico</strong>, que maneja señales continuas (la voz en un micrófono, por ejemplo), el digital trabaja con datos cuantizados: es <strong>preciso, estable y fácil de copiar</strong> sin que la información se degrade.</li>
-          </ul>
-          <div class="note"><strong>Vínculo con los sistemas numéricos:</strong> toda la información se codifica en <strong>binario</strong> y los bits se agrupan en bytes; ese es el lenguaje con el que operan estos circuitos.</div>
-        </div>
-        <div class="fig">
-          <div class="wavepair">
-            <div class="wavebox">
-              <svg viewBox="0 0 200 90" aria-hidden="true">
-                <line x1="0" y1="45" x2="200" y2="45" stroke="#d8e2ee" stroke-width="1.5"/>
-                <path d="M0 45 C 18 8 34 8 50 45 S 84 82 100 45 S 134 8 150 45 S 184 82 200 45"
-                  fill="none" stroke="#bd6a34" stroke-width="3.5"/>
-              </svg>
-              <div class="cap">Analógica · continua</div>
+          <div class="topic-h"><span class="mnum">03</span><h3>Tipos de circuitos digitales</h3></div>
+          <div class="tipos">
+            <div class="card">
+              <h3>Combinacionales</h3>
+              <p>La salida depende <strong>solo de las entradas actuales</strong>; no guardan estados anteriores.</p>
+              <div class="diagram">
+                <span class="blk">Entradas</span><span class="ar">&rarr;</span>
+                <span class="blk core">Lógica</span><span class="ar">&rarr;</span>
+                <span class="blk out">Salida</span>
+              </div>
+              <div><span class="disc">Compuertas</span><span class="disc">Multiplexores</span><span class="disc">Sumadores</span><span class="disc">Decodificadores</span></div>
             </div>
-            <div class="wavebox">
-              <svg viewBox="0 0 200 90" aria-hidden="true">
-                <line x1="0" y1="45" x2="200" y2="45" stroke="#d8e2ee" stroke-width="1.5"/>
-                <path d="M0 70 H26 V20 H66 V70 H106 V20 H146 V70 H186 V20 H200"
-                  fill="none" stroke="#0b93b8" stroke-width="3.5" stroke-linejoin="round"/>
-              </svg>
-              <div class="cap">Digital · 0 / 1</div>
+            <div class="card copper">
+              <h3>Secuenciales</h3>
+              <p>La salida depende de las entradas <strong>y del estado anterior</strong>; tienen memoria y usan una señal de reloj.</p>
+              <div class="diagram">
+                <span class="blk">Entradas</span><span class="ar">&rarr;</span>
+                <span class="blk core">Lógica</span><span class="ar">&rarr;</span>
+                <span class="blk out">Salida</span>
+              </div>
+              <div class="fb"><span class="loop">&#8634;</span> Realimentación del estado · reloj (CLK)</div>
+              <div style="margin-top:.6vh"><span class="disc">Flip-flops</span><span class="disc">Registros</span><span class="disc">Contadores</span><span class="disc">Memorias</span></div>
             </div>
           </div>
-          <div class="bits">0 1 1 0 1 0 0 1</div>
+        </div>
+        <div>
+          <div class="topic-h"><span class="mnum">04</span><h3>¿En dónde se aplican?</h3></div>
+          <div class="appmini">
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <h3>Cómputo</h3><p>Computadoras y servidores.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+              <h3>Móviles</h3><p>Teléfonos y tabletas.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21l3-10 3 10"/><circle cx="12" cy="7" r="1.6"/><path d="M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M6 4.5a9 9 0 0 0 0 11M18 4.5a9 9 0 0 1 0 11"/></svg></div>
+              <h3>Telecom</h3><p>Redes y fibra óptica.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="18" r="1.7"/><circle cx="16.5" cy="18" r="1.7"/></svg></div>
+              <h3>Automotriz</h3><p>Control (ECU) y sensores.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20S4 15 4 9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 8 2.5C20 15 12 20 12 20z"/><path d="M12 9v4M10 11h4"/></svg></div>
+              <h3>Salud</h3><p>Equipo médico.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V11l5 3V11l5 3V8l5 3v9z"/><path d="M11 6l1-3 1 3"/></svg></div>
+              <h3>Industria</h3><p>Automatización.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6v9H4z"/><path d="M10 20v-5h4v5"/></svg></div>
+              <h3>Hogar</h3><p>Electrodomésticos.</p>
+            </div>
+            <div class="app">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10.5" y="10.5" width="3" height="3"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></div>
+              <h3>Embebidos</h3><p>Microcontroladores e IoT.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span class="tag">01 · ¿Qué son?</span><span>Circuitos digitales</span></div>
+    <div class="foot"><span class="tag">Cuartilla 2 · Tipos y usos</span><span>Circuitos digitales</span></div>
   </section>
 
-  <!-- 3 · CARACTERÍSTICAS -->
-  <section class="slide">
-    <div class="ribbon"></div>
-    <div class="kicker">02 · Características</div>
-    <h2>Principales características</h2>
-    <div class="content">
-      <div class="grid g3">
-        <div class="card"><span class="mtag">Dos estados</span><p>Trabajan únicamente con <strong style="color:var(--cyan)">0 y 1</strong> (bajo y alto voltaje).</p></div>
-        <div class="card"><span class="mtag">Álgebra de Boole</span><p>Se construyen con compuertas lógicas: AND, OR, NOT, NAND, NOR y XOR.</p></div>
-        <div class="card"><span class="mtag">Inmunidad al ruido</span><p>Al reconocer solo dos niveles, toleran interferencias sin perder la información.</p></div>
-        <div class="card"><span class="mtag">Precisión</span><p>El mismo dato se procesa y se copia sin degradarse ni acumular errores.</p></div>
-        <div class="card"><span class="mtag">Almacenamiento</span><p>La información binaria se guarda y se recupera con facilidad en memoria.</p></div>
-        <div class="card copper"><span class="mtag">Integración (VLSI)</span><p>Millones de transistores conviven en un solo chip del tamaño de una uña.</p></div>
-      </div>
-      <div class="fig" style="margin-top:1.8vh">
-        <div class="gates">
-          <div class="gate">
-            <svg viewBox="0 0 100 70" aria-hidden="true">
-              <path d="M28 12 H52 A23 23 0 0 1 52 58 H28 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
-              <path d="M8 24 H28 M8 46 H28 M75 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
-            </svg>
-            <div class="glabel">AND</div>
-          </div>
-          <div class="gate">
-            <svg viewBox="0 0 100 70" aria-hidden="true">
-              <path d="M20 12 Q36 35 20 58 Q52 58 76 35 Q52 12 20 12 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
-              <path d="M8 24 H26 M8 46 H26 M76 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
-            </svg>
-            <div class="glabel">OR</div>
-          </div>
-          <div class="gate">
-            <svg viewBox="0 0 100 70" aria-hidden="true">
-              <path d="M24 12 L24 58 L64 35 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
-              <circle cx="70" cy="35" r="6" fill="none" stroke="#122a4d" stroke-width="3"/>
-              <path d="M8 35 H24 M76 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
-            </svg>
-            <div class="glabel">NOT</div>
-          </div>
-          <div class="gate">
-            <svg viewBox="0 0 100 70" aria-hidden="true">
-              <path d="M14 12 Q30 35 14 58" fill="none" stroke="#0b93b8" stroke-width="3"/>
-              <path d="M26 12 Q42 35 26 58 Q58 58 82 35 Q58 12 26 12 Z" fill="none" stroke="#122a4d" stroke-width="3"/>
-              <path d="M8 24 H29 M8 46 H29 M82 35 H94" fill="none" stroke="#122a4d" stroke-width="3"/>
-            </svg>
-            <div class="glabel">XOR</div>
-          </div>
-        </div>
-        <div class="cap">Bloques básicos de todo circuito digital: las compuertas lógicas</div>
-      </div>
-    </div>
-    <div class="foot"><span class="tag">02 · Características</span><span>Circuitos digitales</span></div>
-  </section>
-
-  <!-- 4 · TIPOS -->
-  <section class="slide">
-    <div class="ribbon"></div>
-    <div class="kicker">03 · Clasificación</div>
-    <h2>Tipos de circuitos digitales</h2>
-    <div class="content">
-      <div class="grid g2">
-        <div class="card">
-          <span class="mtag">Tipo A</span>
-          <h3>Combinacionales</h3>
-          <p style="margin-bottom:.6vh">La salida depende <strong style="color:var(--navy)">únicamente de las entradas presentes</strong>; no guardan estados anteriores.</p>
-          <div class="diagram">
-            <span class="blk">Entradas</span><span class="ar">→</span>
-            <span class="blk core">Lógica</span><span class="ar">→</span>
-            <span class="blk out">Salida</span>
-          </div>
-          <div>
-            <span class="disc">Compuertas</span><span class="disc">Multiplexores</span>
-            <span class="disc">Decodificadores</span><span class="disc">Sumadores</span><span class="disc">Comparadores</span>
-          </div>
-        </div>
-        <div class="card copper">
-          <span class="mtag">Tipo B</span>
-          <h3>Secuenciales</h3>
-          <p style="margin-bottom:.6vh">La salida depende de las entradas <strong style="color:var(--navy)">y del estado anterior</strong>; tienen memoria y se sincronizan con un reloj.</p>
-          <div class="diagram">
-            <span class="blk">Entradas</span><span class="ar">→</span>
-            <span class="blk core">Lógica</span><span class="ar">→</span>
-            <span class="blk out">Salida</span>
-          </div>
-          <div class="fb"><span class="loop">↺</span> Realimentación del estado · señal de reloj (CLK)</div>
-          <div style="margin-top:.8vh">
-            <span class="disc">Flip-flops</span><span class="disc">Registros</span>
-            <span class="disc">Contadores</span><span class="disc">Memorias</span>
-          </div>
-        </div>
-      </div>
-      <div class="note"><strong>En pocas palabras:</strong> los <strong>combinacionales</strong> calculan; los <strong>secuenciales</strong> además recuerdan. Combinándolos se construyen sistemas complejos como un procesador.</div>
-    </div>
-    <div class="foot"><span class="tag">03 · Tipos</span><span>Circuitos digitales</span></div>
-  </section>
-
-  <!-- 5 · APLICACIONES -->
-  <section class="slide">
-    <div class="ribbon"></div>
-    <div class="kicker">04 · Aplicaciones</div>
-    <h2>¿En dónde se aplican?</h2>
-    <div class="content">
-      <p class="lead" style="margin-bottom:.4vh">Están en prácticamente todo dispositivo que calcula, guarda o comunica información:</p>
-      <div class="apps">
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h3>Cómputo</h3><p>Computadoras, laptops y servidores.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
-          <h3>Móviles</h3><p>Teléfonos y tabletas.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21l3-10 3 10"/><circle cx="12" cy="7" r="1.6"/><path d="M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M6 4.5a9 9 0 0 0 0 11M18 4.5a9 9 0 0 1 0 11"/></svg></div>
-          <h3>Telecom</h3><p>Redes, routers y fibra óptica.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="18" r="1.7"/><circle cx="16.5" cy="18" r="1.7"/></svg></div>
-          <h3>Automotriz</h3><p>Unidades de control (ECU) y sensores.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20S4 15 4 9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 8 2.5C20 15 12 20 12 20z"/><path d="M12 9v4M10 11h4"/></svg></div>
-          <h3>Salud</h3><p>Equipo médico y de diagnóstico.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V11l5 3V11l5 3V8l5 3v9z"/><path d="M11 6l1-3 1 3"/></svg></div>
-          <h3>Industria</h3><p>Automatización y control de procesos.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6v9H4z"/><path d="M10 20v-5h4v5"/></svg></div>
-          <h3>Hogar</h3><p>Electrodomésticos inteligentes.</p>
-        </div>
-        <div class="app">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10.5" y="10.5" width="3" height="3"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></div>
-          <h3>Embebidos</h3><p>Microcontroladores e IoT.</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span class="tag">04 · Aplicaciones</span><span>Circuitos digitales</span></div>
-  </section>
-
-  <!-- 6 · SÍNTESIS -->
-  <section class="slide accent">
-    <div class="ribbon"></div>
-    <svg class="bgart" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path d="M0 560 H120 V500 H180 V560 H240 V500 H300 V560 H420" fill="none"
-        stroke="#3fd0e8" stroke-width="3" opacity="0.16"/>
-      <g fill="none" stroke="#3fd0e8" stroke-width="2" opacity="0.1">
-        <path d="M1200 180 H900 V110 H760"/><path d="M1200 300 H1020 V360 H820"/>
-      </g>
-    </svg>
-    <div class="kicker">Idea central</div>
-    <h1>Del bit a la aplicación</h1>
-    <p class="lead" style="color:#cddcec;max-width:64ch">Un mismo principio se repite a cada escala: dos estados, combinados con lógica, construyen todo lo que hace un dispositivo.</p>
-    <div class="flow">
-      <div class="step"><div class="bit">0 / 1</div><h3>Bit</h3></div>
-      <div class="arrow">›</div>
-      <div class="step">
-        <div class="ic"><svg viewBox="0 0 100 70" fill="none" stroke="currentColor" stroke-width="4"><path d="M28 12 H52 A23 23 0 0 1 52 58 H28 Z"/><path d="M10 24 H28 M10 46 H28 M75 35 H92"/></svg></div>
-        <h3>Compuerta lógica</h3>
-      </div>
-      <div class="arrow">›</div>
-      <div class="step">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10.5" y="10.5" width="3" height="3"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></div>
-        <h3>Circuito</h3>
-      </div>
-      <div class="arrow">›</div>
-      <div class="step">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3>Sistema digital</h3>
-      </div>
-      <div class="arrow">›</div>
-      <div class="step"><div class="bit">★</div><h3>Aplicación real</h3></div>
-    </div>
-    <div class="note" style="background:rgba(255,255,255,.06);border-left-color:var(--cyan-hi);color:#cddcec;margin-top:1.4vh">
-      Cada acción de un dispositivo —calcular, guardar, comunicar— se reduce, al final, a <strong>millones de circuitos digitales conmutando entre 0 y 1</strong>.
-    </div>
-    <div class="foot"><span class="tag">Síntesis</span><span>Circuitos digitales</span></div>
-  </section>
-
-  <!-- 7 · REFERENCIAS -->
+  <!-- 4 · REFERENCIAS -->
   <section class="slide">
     <div class="ribbon"></div>
     <div class="kicker">Fuentes de consulta</div>
     <h2>Referencias</h2>
     <div class="content">
       <div class="refs">
-        <p class="ref"><span class="n">[1]</span>Boylestad, R. L., &amp; Nashelsky, L. (2009). <em>Electrónica: teoría de circuitos y dispositivos electrónicos</em> (10.ª ed.). Pearson Educación.</p>
-        <p class="ref"><span class="n">[2]</span>Code.org. (2015). <em>How computers work: Binary &amp; data</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=USCBCmwMCDA">https://www.youtube.com/watch?v=USCBCmwMCDA</a></p>
-        <p class="ref"><span class="n">[3]</span>Floyd, T. L. (2016). <em>Fundamentos de sistemas digitales</em> (11.ª ed.). Pearson Educación.</p>
-        <p class="ref"><span class="n">[4]</span>Mano, M. M., &amp; Ciletti, M. D. (2014). <em>Diseño digital</em> (5.ª ed.). Pearson Educación.</p>
-        <p class="ref"><span class="n">[5]</span>Tocci, R. J., Widmer, N. S., &amp; Moss, G. L. (2017). <em>Sistemas digitales: principios y aplicaciones</em> (11.ª ed.). Pearson Educación.</p>
+        <p class="ref">Boylestad, R. L., &amp; Nashelsky, L. (2009). <em>Electrónica: teoría de circuitos y dispositivos electrónicos</em> (10.ª ed.). Pearson Educación.</p>
+        <p class="ref">Code.org. (2015). <em>How computers work: Binary &amp; data</em> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=USCBCmwMCDA">https://www.youtube.com/watch?v=USCBCmwMCDA</a></p>
+        <p class="ref">Floyd, T. L. (2016). <em>Fundamentos de sistemas digitales</em> (11.ª ed.). Pearson Educación.</p>
+        <p class="ref">Mano, M. M., &amp; Ciletti, M. D. (2014). <em>Diseño digital</em> (5.ª ed.). Pearson Educación.</p>
+        <p class="ref">Tocci, R. J., Widmer, N. S., &amp; Moss, G. L. (2017). <em>Sistemas digitales: principios y aplicaciones</em> (11.ª ed.). Pearson Educación.</p>
       </div>
-      <div class="note">Referencias en formato <strong>APA (7.ª edición)</strong>. Sustituye o añade las fuentes que hayas consultado realmente para tu infografía.</div>
+      <div class="note">Referencias en formato <strong>APA (7.ª edición)</strong>, en orden alfabético. Sustituye o añade las fuentes que realmente hayas consultado.</div>
     </div>
-    <div class="foot"><span class="tag">Referencias · APA 7</span><span>Circuitos digitales</span></div>
+    <div class="foot"><span class="tag">Fuentes · APA 7</span><span>Circuitos digitales</span></div>
   </section>
 
 </div>
