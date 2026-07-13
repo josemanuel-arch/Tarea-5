@@ -93,6 +93,22 @@
   .datos dd{color:#eaf3fb}
   .fill{color:var(--cyan-hi);border-bottom:1px dashed rgba(63,208,232,.55);padding-bottom:.1vh}
 
+  /* portada oficial (formato Anáhuac Online) */
+  .portada{background:#fff;align-items:center;justify-content:center;overflow:hidden}
+  .portada .ribbon,.portada .foot{display:none}
+  .p-wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .p-logo{height:22vh;margin-bottom:1.2vh}
+  .p-logo svg{height:100%;width:auto;display:block}
+  .p-materia{font-size:3.1vh;font-weight:700;color:#bf7b1b;line-height:1.2}
+  .p-carrera{font-size:2.4vh;font-weight:700;color:#232323;margin-top:.5vh}
+  .p-alumno{font-size:2.95vh;font-weight:700;color:#bf7b1b;margin-top:3vh}
+  .p-matricula{font-size:2.3vh;color:#232323;margin-top:.3vh;font-variant-numeric:tabular-nums}
+  .p-tarea{font-size:3vh;font-weight:700;color:#bf7b1b;margin-top:3vh;line-height:1.22;max-width:32ch}
+  .p-modulo{font-size:2.4vh;font-weight:700;color:#232323;margin-top:.4vh}
+  .p-profe{font-size:2.65vh;font-weight:700;color:#bf7b1b;margin-top:2.8vh}
+  .p-fechalabel{font-size:2.35vh;font-weight:700;color:#232323;margin-top:2.8vh}
+  .p-fecha{font-size:2.3vh;color:#232323;margin-top:.2vh}
+
   /* cards */
   .card{background:var(--surface);border:1px solid var(--linea);border-top:4px solid var(--cyan);
     border-radius:12px;padding:2vh 2.1vh;box-shadow:0 4px 16px rgba(18,42,77,.05)}
@@ -188,36 +204,51 @@
 <body>
 <div class="deck" id="deck">
 
-  <!-- 1 · PORTADA -->
-  <section class="slide cover active">
-    <div class="ribbon"></div>
-    <svg class="bgart" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="#3fd0e8" stroke-width="2" opacity="0.14">
-        <path d="M0 150 H860 V60 H1040 V150 H1200"/>
-        <path d="M0 250 H720 V330 H960"/>
-        <path d="M0 470 H540 V400 H820 V470 H1200"/>
-        <path d="M0 560 H400 V620 H700"/>
-      </g>
-      <g fill="#3fd0e8" opacity="0.18">
-        <circle cx="860" cy="150" r="6"/><circle cx="1040" cy="60" r="6"/>
-        <circle cx="720" cy="330" r="6"/><circle cx="540" cy="470" r="6"/>
-        <circle cx="820" cy="400" r="6"/><circle cx="400" cy="620" r="6"/>
-      </g>
-      <path d="M120 640 H180 V590 H240 V640 H300 V590 H360 V640 H420" fill="none"
-        stroke="#3fd0e8" stroke-width="3" opacity="0.22"/>
-    </svg>
-    <div class="kicker">Universidad Anáhuac México Sur · Ingeniería</div>
-    <span class="title-tag">Tarea 1 · Diseño de convertidor de sistemas numéricos</span>
-    <h1>Circuitos digitales</h1>
-    <p class="sub">Fundamentos de la electrónica digital y su vínculo con los sistemas numéricos.</p>
-    <dl class="datos">
-      <dt>Asignatura</dt><dd><span class="fill">[ Nombre de la asignatura ]</span></dd>
-      <dt>Alumno(a)</dt><dd><span class="fill">[ Tu nombre completo ]</span></dd>
-      <dt>Matrícula</dt><dd><span class="fill">[ Tu matrícula ]</span></dd>
-      <dt>Profesor(a)</dt><dd><span class="fill">[ Nombre del profesor(a) ]</span></dd>
-      <dt>Fecha</dt><dd>13 de julio de 2026</dd>
-    </dl>
-    <div class="foot"><span class="tag">Infografía · Electrónica digital</span><span>Circuitos digitales</span></div>
+  <!-- 1 · PORTADA (formato Anáhuac Online) -->
+  <section class="slide portada active">
+    <div class="p-wrap">
+      <div class="p-logo">
+        <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Universidad Anáhuac Online">
+          <defs>
+            <path id="pa-top" d="M 38 122 A 92 92 0 0 1 222 122" fill="none"/>
+            <path id="pa-bot" d="M 45 122 A 85 85 0 0 0 215 122" fill="none"/>
+          </defs>
+          <text font-family="Georgia,'Times New Roman',serif" font-size="15.5" letter-spacing="2" fill="#5e2b28" font-weight="600">
+            <textPath href="#pa-top" startOffset="50%" text-anchor="middle">UNIVERSIDAD ANÁHUAC</textPath>
+          </text>
+          <text font-family="Georgia,'Times New Roman',serif" font-size="12.5" letter-spacing="1.6" fill="#5e2b28" font-weight="600">
+            <textPath href="#pa-bot" startOffset="50%" text-anchor="middle">VINCE IN BONO MALUM</textPath>
+          </text>
+          <circle cx="40" cy="122" r="2.6" fill="#5e2b28"/>
+          <circle cx="220" cy="122" r="2.6" fill="#5e2b28"/>
+          <g transform="rotate(45 130 118)">
+            <rect x="130" y="86" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="130" y="95" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="130" y="104" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="139" y="118" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+            <rect x="148" y="118" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+            <rect x="157" y="118" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+            <rect x="98" y="125" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="98" y="134" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="98" y="143" width="32" height="7" rx="1.5" fill="#dc9a2b"/>
+            <rect x="98" y="86" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+            <rect x="107" y="86" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+            <rect x="116" y="86" width="7" height="32" rx="1.5" fill="#6b2e27"/>
+          </g>
+          <text x="216" y="150" font-family="Georgia,serif" font-size="7" fill="#5e2b28">MR</text>
+          <text x="130" y="252" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="26" fill="#bf7b1b" font-weight="600">Online</text>
+        </svg>
+      </div>
+      <div class="p-materia">Electrónica Digital</div>
+      <div class="p-carrera">Ing. en Sistemas Computacionales</div>
+      <div class="p-alumno">José Manuel Rodríguez Cantú</div>
+      <div class="p-matricula">00612676</div>
+      <div class="p-tarea">Tarea 1: Diseño de convertidor de sistemas numéricos</div>
+      <div class="p-modulo">Módulo 1: Sistemas numéricos</div>
+      <div class="p-profe">Ana Laura Merino Díaz</div>
+      <div class="p-fechalabel">Fecha:</div>
+      <div class="p-fecha">13 de julio de 2026</div>
+    </div>
   </section>
 
   <!-- 2 · CUARTILLA 1: FUNDAMENTOS -->
