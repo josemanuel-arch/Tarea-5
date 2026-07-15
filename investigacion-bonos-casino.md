@@ -77,6 +77,24 @@ Si tu prioridad absoluta es **cero rollover**, esto es lo que existe de verdad �
 
 ---
 
+## 3-bis. Ofertas de APUESTA GRATIS (free bet) tipo Novibet — casas operando hoy
+
+Referencia: **Novibet** da una apuesta gratis de **~$200–$500 MXN** (según cupón) al depositar y apostar; las **ganancias de esa free bet se acreditan como bono con rollover x3** (cuota mín. +100, 7 días). Alternativas vigentes con free bet similar:
+
+| Casa | Apuesta gratis | ¿Depósito? | Letra chica clave |
+|---|---|---|---|
+| **⭐ Strendus** | **$400 MXN** (código STR1000) | Solo registro | Cuota 2.00–3.00, 7 días, **máx. retiro $800** |
+| **Sportium** | **$400 MXN** | Sí — tras apostar $200 en un evento | Se activa al liquidarse tu apuesta |
+| **Codere** | **$200** (deportes) / $400 (casino) | Sí | Freebet, ganancia con condiciones |
+| **Betsson** | **$100 MXN** | Sí — tras apostar $200 | Monto fijo |
+| **BetMéxico** | **$50 MXN** | ❌ **Sin depósito** | **Sin rollover, 100% retirable** (lo más limpio, pero chico) |
+| **Draftea** | 4 free bets (100% del depósito) | Sí | Modelo de referencia inicial |
+| ~~bet365 / Betano~~ | — | — | ❌ Bloqueadas en México (julio 2026) |
+
+**Recomendación para "una free bet como la de Novibet":** la más parecida en monto y facilidad es **Strendus** ($400 solo por registro; limitantes: tope de retiro $800 y caducidad 7 días). Si no quieres depositar, **BetMéxico** ($50, sin rollover y retirable de verdad). Casi todas estas free bets **no devuelven el importe apostado, solo la ganancia**, y varias añaden rollover sobre esa ganancia o tope de retiro — la excepción limpia es BetMéxico.
+
+---
+
 ## 4. Freebet vs. bono con rollover vs. dinero real — para que compares peras con peras
 
 | Tipo | ¿Devuelve tu apuesta (stake)? | ¿Rollover? | ¿Retirable? |
@@ -147,6 +165,12 @@ Si tu prioridad absoluta es **cero rollover**, esto es lo que existe de verdad �
 - draftea.mx/page/terminos-y-condiciones-cupon-4apuestasgratis
 - draftea.mx/page/terminos-y-condiciones-apuestas-gratis-free-bets
 - help.draftea.com/support/solutions/articles/150000212096
+
+**Apuestas gratis / free bets (tipo Novibet):**
+- bolavip.com/mx/apuestas/guias/novibet-bono-de-bienvenida
+- futdados.com/mx/codigo-promocional-novibet-mx/
+- legalbet.mx/bonos/sets/apuestas-gratis/
+- legalbet.mx/bonos/sets/bono-sin-deposito-en-casas-de-apuestas/
 
 **Casas de apuestas / comparadores:**
 - legalbet.mx/casas-de-apuestas/ (Caliente, bet365, Betano, Strendus, PlayDoit, Rushbet, 1xBet)
