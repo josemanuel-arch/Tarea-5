@@ -10,13 +10,13 @@
 
 1. **El bono de Draftea es, en la práctica, de los mejores del mercado en su categoría.** Duplica tu primer depósito al 100% entregándolo como **4 apuestas gratis (freebets)** del 25% cada una, **sin rollover multiplicativo** (funciona como 1x: solo retiras la ganancia neta). Superarlo de verdad es difícil.
 
-2. **Lo más parecido y comparable es `bet365`:** 100% del primer depósito **hasta $5,000 MXN** en "créditos de apuesta" (que funcionan igual que una freebet), con **rollover de solo x1** y momio mínimo 1.50. Es el único *match* grande con una condición tan ligera, y con un tope máximo más alto que Draftea.
+2. **⚠️ IMPORTANTE (actualización julio 2026): `bet365` y `Betano` están BLOQUEADAS en México.** La UIF/Hacienda las suspendió desde noviembre de 2025 por una investigación de presunto lavado de dinero (las opera Grupo Salinas / TV Azteca). A pesar de un fallo judicial de marzo de 2026 que ordenó reactivarlas, **a julio de 2026 siguen sin operar** y el caso está en apelación. **No son una opción disponible actualmente.** Antes eran la mejor alternativa a Draftea (100% hasta $5,000 en créditos tipo freebet, rollover x1); si regresan, volverían a serlo — pero hoy no cuentan.
 
 3. **La combinación exacta que pides — "100% + freebet + CERO rollover + retirable" — no existe** en ninguna casa regulada de México. Es económicamente inviable para el operador y funciona como reclamo de marketing. Lo confirmaron las tres investigaciones de forma independiente.
 
 4. **Los bonos genuinamente "sin rollover" sí existen, pero son pequeños y fijos** (no duplican tu depósito): giros gratis (PlayUZU, Strendus) o cantidades fijas bajas ($50 MXN sin depósito en BetMéxico). Sirven para probar sin riesgo, no para "duplicar tu dinero".
 
-**Conclusión de una línea:** si lo que te gustó de Draftea es "duplican mi depósito en freebets casi sin condiciones", entonces **el bono de Draftea ya es tu mejor opción** y **bet365 es la alternativa más comparable** (mayor tope, rollover mínimo x1). Ningún casino te va a duplicar el depósito en dinero libre y retirable sin ninguna condición.
+**Conclusión de una línea:** si lo que te gustó de Draftea es "duplican mi depósito en freebets casi sin condiciones", entonces **el bono de Draftea ya es tu mejor opción**, y con `bet365`/`Betano` bloqueadas en México (julio 2026), **es prácticamente la única casa operando hoy que duplica el depósito sin rollover real**. Ningún casino te va a duplicar el depósito en dinero libre y retirable sin ninguna condición.
 
 ---
 
@@ -45,10 +45,10 @@ Ordenadas de menor a mayor rollover (mejor a peor para tu objetivo). El rollover
 
 | Casa | Igualación y tope (MXN) | Tipo de bono | **Rollover** | Momio mín. / Plazo | ¿Se parece a Draftea? |
 |---|---|---|---|---|---|
-| **⭐ bet365** | 100% hasta **$5,000** (deportes) | Créditos de apuesta (tipo freebet: no devuelve el stake) | **x1** | 1.50 / 30 días | **Sí — la más parecida.** Mayor tope, rollover mínimo |
-| **Caliente** | 100% hasta **$7,000** | Bono jugable (no freebet) | **x3** | momios −200+ / 7 días | Parecido en monto, más condiciones |
+| ~~**bet365**~~ ❌ | ~~100% hasta $5,000~~ | ❌ **BLOQUEADA en MX (julio 2026)** | ~~x1~~ | — | Era la más parecida, pero **no opera hoy** |
+| ~~**Betano**~~ ❌ | ~~100% hasta $3,000~~ | ❌ **BLOQUEADA en MX (julio 2026)** | ~~x3–x4~~ | — | **No opera hoy** (mismo grupo que bet365) |
+| **⭐ Caliente** | 100% hasta **$7,000** | Bono jugable (no freebet) | **x3** | momios −200+ / 7 días | **La mejor alternativa operando hoy** (rollover más bajo tras Draftea) |
 | **Codere** | 100% + 50% + 70% en 3 depósitos, total hasta **$7,000** | Bono jugable | **x3** | −200+ / 7 días | Escalonado, no freebet |
-| **Betano** | 100% hasta **$3,000** (deportes) | Bono jugable | **x3–x4** | 2.50 / 30 días | Rollover bajo, no freebet |
 | **1xBet** ⚠️ | 100% hasta **$3,000** | Bono jugable | **x5** | combinadas 3+ eventos, cuota ≥1.40 / 30 días | Regulación dudosa en MX |
 | **PlayDoit** | 100% hasta **$3,500** | Bono jugable | **x5** | 1.5 / 30 días | — |
 | **Betway** | 100% hasta **$4,000** | Bono jugable | **x8** | — / 7 días | Rollover alto |
@@ -114,16 +114,18 @@ Si tu prioridad absoluta es **cero rollover**, esto es lo que existe de verdad �
 
 **Para tu caso concreto ("algo como el de Draftea, por primer depósito"):**
 
-1. **Quédate con Draftea si te sirve el enfoque deportivo.** Su bono (100% en 4 freebets, sin rollover multiplicativo, cuota máx. 8.0) ya está entre lo mejor de su categoría. Difícil de superar en condiciones.
+1. **Quédate con Draftea.** Su bono (100% en 4 freebets, sin rollover multiplicativo, cuota máx. 8.0) ya está entre lo mejor de su categoría. Con `bet365` y `Betano` bloqueadas en México (julio 2026), **es prácticamente la única casa operando hoy que duplica tu depósito sin rollover real.** Difícil de superar.
 
-2. **Si quieres una alternativa comparable o con mayor tope → `bet365`.** Misma lógica (créditos tipo freebet), **tope más alto ($5,000 vs. $1,000–$2,000 de Draftea)** y **rollover mínimo x1**. Es lo más cercano a "igual o mejor".
+2. **⚠️ `bet365` NO está disponible.** Era la mejor alternativa (100% hasta $5,000, créditos tipo freebet, rollover x1), pero está **bloqueada por la UIF desde noviembre 2025** junto con Betano. Vigila si regresa (posible en los próximos meses, sin garantía); si vuelve, sería de nuevo la opción más comparable.
 
-3. **Si tu prioridad es CERO rollover por encima de todo → PlayUZU o BetMéxico**, aceptando que serán **montos pequeños y fijos**, no una duplicación de tu depósito.
+3. **Si aceptas un rollover bajo → Caliente o Codere (x3).** Son las de menor rollover entre las que operan hoy, aunque su bono es *jugable* (no freebet): tienes que apostar 3 veces antes de retirar.
+
+4. **Si tu prioridad es CERO rollover por encima de todo → PlayUZU o BetMéxico**, aceptando que serán **montos pequeños y fijos**, no una duplicación de tu depósito.
 
 4. **Antes de depositar en cualquiera:**
    - Confirma el **cupón y el tope vigentes** dentro de la app oficial (cambian cada campaña).
    - Lee el **max cashout, la caducidad, la cuota mínima** y si es **freebet o dinero real**.
-   - Verifica que la casa tenga **permiso SEGOB** (Caliente, Codere, Strendus, Winpot, PlayDoit lo tienen; bet365, Betano, Betsson, Betway, Rushbet operan asociados a permisionarios; 1xBet es el más dudoso).
+   - Verifica que la casa tenga **permiso SEGOB** y que **esté operando**: Caliente, Codere, Strendus, Winpot, PlayDoit, Betsson, Betway y Rushbet operan hoy; **bet365 y Betano están bloqueadas (julio 2026)**; 1xBet es el de regulación más dudosa.
 
 ---
 
@@ -155,6 +157,11 @@ Si tu prioridad absoluta es **cero rollover**, esto es lo que existe de verdad �
 - bolavip.com/mx/apuestas/guias/bet365-creditos-de-apuesta
 - strendus.com.mx/promociones/bono-de-registro-freebet/
 - bookies.com/mx/casas-de-apuestas-sin-rollover
+
+**Bloqueo de bet365 / Betano en México (2025–2026):**
+- expansion.mx/tecnologia/2025/11/15/bet365-y-betano-bloqueados-en-mexico
+- jornada.com.mx/noticia/2026/03/22/politica/juez-concede-amparo-a-tv-azteca-para-reanudar-operaciones-de-bet365-y-betano
+- cronica.com.mx/nacional/2026/06/02/volvera-a-operar-bet365-en-mexico-para-el-mundial-fifa-2026 (a junio 2026 seguían sin operar)
 
 **Modelo de negocio / juego responsable:**
 - gamblingnerd.com/blog/sticky-vs-non-sticky-bonuses/
