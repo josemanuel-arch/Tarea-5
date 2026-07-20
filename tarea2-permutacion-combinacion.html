@@ -65,9 +65,9 @@
   <h1 class="title">Análisis combinatorio de las entradas de un circuito digital combinacional</h1>
 
   <h2>1. Análisis del problema</h2>
-  <p>Un circuito digital combinacional es aquel cuya salida depende únicamente de la combinación de sus entradas en un instante determinado, sin considerar estados anteriores. El problema plantea diseñar el sistema de acceso de la puerta de una granja, la cual se activa mediante tres botones identificados como A, B y C. El sistema funciona con tres entradas; es decir, con una secuencia de tres pulsaciones.</p>
-  <p>Antes de contar los casos conviene decidir si el problema corresponde a una permutación o a una combinación. La diferencia está en el orden: en una combinación el orden de los elementos no altera el resultado, mientras que en una permutación sí lo altera. En este sistema el orden es determinante, porque la secuencia A, B, C abre la puerta de manera distinta a la secuencia C, B, A. Por esa razón el problema se resuelve con permutaciones y variaciones, no con combinaciones.</p>
-  <p>El ejercicio pide analizar dos escenarios sobre las tres entradas del circuito:</p>
+  <p>En un circuito digital combinacional la salida queda determinada por la combinación de sus entradas. El problema plantea diseñar el sistema de acceso de una granja, cuya puerta se abre al introducir una clave formada por tres pulsaciones de los botones A, B y C. Como el sistema trabaja con tres entradas, interesa contar cuántas claves distintas pueden formarse.</p>
+  <p>Antes de contar los casos conviene decidir si el problema corresponde a una permutación o a una combinación. La diferencia está en el orden: en una combinación el orden de los elementos no altera el resultado, mientras que en una permutación sí lo altera. Aquí el orden es determinante, porque la clave A, B, C no es la misma que la clave C, B, A, aunque usen los mismos botones. Por esa razón el problema se resuelve con permutaciones y variaciones, y no con combinaciones.</p>
+  <p>El ejercicio pide analizar dos escenarios para esas tres pulsaciones:</p>
   <ul>
     <li>Escenario 1: cada botón se pulsa una sola vez.</li>
     <li>Escenario 2: los botones pueden pulsarse más de una vez y alguno puede quedar sin pulsar.</li>
@@ -92,14 +92,14 @@
   </table>
   <div class="formula">P(3) = 3! = 3 × 2 × 1 = <span class="res">6</span></div>
   <h3>Resultado</h3>
-  <p>Existen <strong>6 secuencias posibles</strong>. Estas son las salidas del circuito en este escenario:</p>
+  <p>Existen <strong>6 secuencias posibles</strong>. Estas son las salidas posibles del circuito:</p>
   <table class="seq">
     <tr><td>1.  ABC</td><td>2.  ACB</td><td>3.  BAC</td></tr>
     <tr><td>4.  BCA</td><td>5.  CAB</td><td>6.  CBA</td></tr>
   </table>
 
   <h2>4. Punto 2. Los botones pueden pulsarse más de una vez</h2>
-  <p>Al permitirse la repetición, y pudiendo quedar botones sin pulsar, cada una de las tres posiciones puede ocuparse con cualquiera de los tres botones de forma independiente. Se trata de una <strong>variación con repetición</strong>.</p>
+  <p>Al permitirse la repetición, y dado que algún botón puede quedar sin pulsar, cada una de las tres posiciones puede ocuparse con cualquiera de los tres botones de forma independiente. Corresponde a una <strong>variación con repetición</strong>.</p>
   <h3>Procedimiento</h3>
   <p>Cada una de las tres pulsaciones mantiene 3 opciones, ya que las anteriores no reducen las disponibles.</p>
   <table class="mid">
@@ -110,7 +110,7 @@
   </table>
   <div class="formula">VR(3, 3) = 3<sup>3</sup> = 3 × 3 × 3 = <span class="res">27</span></div>
   <h3>Resultado</h3>
-  <p>Existen <strong>27 secuencias posibles</strong>. Estas son las salidas del circuito en este escenario:</p>
+  <p>Existen <strong>27 secuencias posibles</strong>. El circuito puede generar, entonces, las siguientes secuencias:</p>
   <table class="seq">
     <tr><th>Inician con A</th><th>Inician con B</th><th>Inician con C</th></tr>
     <tr><td>AAA</td><td>BAA</td><td>CAA</td></tr>
@@ -125,18 +125,18 @@
   </table>
 
   <h2>5. Interpretación de los resultados</h2>
-  <p>El primer escenario produce 6 secuencias y el segundo, 27. La diferencia se explica por la repetición: al eliminar la restricción de usar cada botón una sola vez, el número de secuencias pasa de 6 a 27, esto es, se multiplica por 4.5.</p>
-  <p>En términos del circuito combinacional, cada secuencia representa una combinación de entradas distinta que el circuito debe poder distinguir para decidir su salida, es decir, abrir o mantener cerrada la puerta. Solo una de las secuencias corresponde a la clave correcta; las demás mantienen la puerta cerrada.</p>
-  <p>Desde la perspectiva de la seguridad, el segundo esquema es más robusto, pues ofrece 27 claves posibles frente a 6, lo que reduce la probabilidad de acertar al azar de 1 entre 6 (16.7 %) a 1 entre 27 (3.7 %). Además, las 6 secuencias del primer escenario están contenidas en las 27 del segundo: son precisamente aquellas en las que no se repite ningún botón.</p>
+  <p>El primer escenario produce 6 secuencias y el segundo, 27. La diferencia se explica por la repetición: al eliminar la restricción de usar cada botón una sola vez, el número de secuencias pasa de 6 a 27, esto es, se vuelve 4.5 veces mayor.</p>
+  <p>Para el circuito combinacional, cada secuencia representa un patrón de entradas distinto que debe poder distinguir para decidir su salida, es decir, abrir o mantener cerrada la puerta. Solo una de las secuencias corresponde a la clave correcta; las demás mantienen la puerta cerrada.</p>
+  <p>En cuanto a la seguridad, el segundo esquema es más robusto, pues ofrece 27 claves posibles frente a 6, lo que reduce la probabilidad de acertar al azar de 1 entre 6 (16.7 %) a 1 entre 27 (3.7 %). Además, las 6 secuencias del primer escenario están contenidas en las 27 del segundo: son precisamente aquellas en las que no se repite ningún botón.</p>
 
   <h2>6. Conclusión</h2>
-  <p>El problema se modela con permutaciones y variaciones, no con combinaciones, porque el orden de las pulsaciones determina la salida del circuito. Bajo la condición de no repetición se obtienen 6 secuencias (3!), y al permitir la repetición se obtienen 27 (3<sup>3</sup>). El ejercicio muestra cómo un cambio en las condiciones del problema modifica el modelo matemático aplicable y, con ello, el número de salidas de un circuito digital combinacional.</p>
+  <p>Como el orden de las pulsaciones determina la salida del circuito, el modelo adecuado son las permutaciones y las variaciones, y no las combinaciones. Bajo la condición de no repetición se obtienen 6 secuencias (3!), y al permitir la repetición se obtienen 27 (3<sup>3</sup>). El ejercicio muestra cómo un cambio en las condiciones del problema modifica el modelo matemático aplicable y, con ello, el número de salidas de un circuito digital combinacional.</p>
 
   <div style="page-break-before:always"></div>
   <h2>Fuentes de consulta</h2>
   <div class="refs">
     <p>Floyd, T. L. (2016). <em>Fundamentos de sistemas digitales</em> (11.ª ed.). Pearson Educación.</p>
-    <p>Grimaldi, R. P. (1998). <em>Matemáticas discreta y combinatoria: una introducción con aplicaciones</em> (3.ª ed.). Addison-Wesley Iberoamericana.</p>
+    <p>Grimaldi, R. P. (1998). <em>Matemática discreta y combinatoria: una introducción con aplicaciones</em> (3.ª ed.). Addison-Wesley Iberoamericana.</p>
     <p>Johnsonbaugh, R. (2005). <em>Matemáticas discretas</em> (6.ª ed.). Pearson Educación.</p>
     <p>Rosen, K. H. (2004). <em>Matemática discreta y sus aplicaciones</em> (5.ª ed.). McGraw-Hill.</p>
   </div>
