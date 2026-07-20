@@ -1,6 +1,6 @@
 /**
  * Stock.java
- * Models a stock traded on the American Stock Exchange.
+ * Models a stock, storing its data and computing its price change.
  * Object Oriented Programming - Module 2, Activity 2.
  */
 public class Stock {

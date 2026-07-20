@@ -66,14 +66,14 @@
   </section>
 
   <h2>1. Description of the solution</h2>
-  <p>This activity models a stock from the American Stock Exchange with an object-oriented approach. The program is split into two files: the <strong>Stock</strong> class, which holds the data and the behavior of a single stock, and a test program that creates one stock and reports its price change.</p>
-  <p>The Stock class keeps four private data fields: <strong>symbol</strong> and <strong>name</strong> (both <em>String</em>), and <strong>previousClosingPrice</strong> and <strong>currentPrice</strong> (both <em>double</em>). The constructor receives the symbol and the name when the object is created. The two prices are assigned afterward through <strong>setPreviousPrice</strong> and <strong>setNewPrice</strong>. The method <strong>getChangePercent</strong> applies the formula below, so the result is positive when the price rises and negative when it falls. A getter was added for each field to read the values from outside the class while the fields stay private, which keeps the object properly encapsulated.</p>
+  <p>This activity models a stock from the American Stock Exchange with an object-oriented approach. The program is split into two files: the <strong>Stock</strong> class, which holds the data and behavior of a single stock, and a test program that creates one stock and reports its price change.</p>
+  <p>The Stock class has four private data fields: <strong>symbol</strong> and <strong>name</strong> (both <em>String</em>), and <strong>previousClosingPrice</strong> and <strong>currentPrice</strong> (both <em>double</em>). The constructor receives the symbol and the name when the object is created. The two prices are assigned afterward through <strong>setPreviousPrice</strong> and <strong>setNewPrice</strong>. The method <strong>getChangePercent</strong> applies the formula below, so the result is positive when the price rises and negative when it falls. Each field also has a getter, so the values can be read from outside the class while the fields stay private and the object remains properly encapsulated.</p>
   <div class="formula">getChangePercent = ((currentPrice − previousClosingPrice) / previousClosingPrice) × 100</div>
   <p>The test program <strong>TestStock</strong> creates a Stock for Netflix with the symbol NFLX and the name Netflix Corporation. It sets the previous closing price to 337.5 and the current price to 345.23, and then prints the stock data together with the price-change percentage. With those values the change is ((345.23 − 337.5) / 337.5) × 100 = <strong>2.29%</strong>, a small rise that the program also states in words.</p>
 
   <h2>2. Source code</h2>
   <div class="filetag">Stock.java</div>
-  <div class="code"><span class="cm">// Models a stock traded on the American Stock Exchange.</span>
+  <div class="code"><span class="cm">// Models a stock, storing its data and computing its price change.</span>
 <span class="kw">public class</span> <span class="fn">Stock</span> {
     <span class="kw">private</span> String symbol;               <span class="cm">// the stock's symbol</span>
     <span class="kw">private</span> String name;                 <span class="cm">// the stock's name</span>
