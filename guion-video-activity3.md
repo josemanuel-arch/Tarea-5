@@ -1,49 +1,58 @@
-# Guion para el video de evidencia (Activity 3)
+# Guion cronometrado para el video (Activity 3)
 
 La consigna pide un video (.mp4) de máximo 3 minutos donde el programa se
-ejecute y expliques brevemente los datos de entrada y salida. Este guion es
-una guía; puedes narrarlo en inglés o en español, como te sientas más cómodo.
+ejecute y expliques brevemente la entrada y la salida. Puedes narrar en
+español (la salida del programa está en inglés y se entiende igual).
 
-## Antes de grabar
-1. Abre una terminal en la carpeta con los cinco archivos .java.
-2. Ten a la vista los archivos y la terminal.
-3. Comandos que vas a ejecutar:
-   - `javac Person.java Doctor.java Patient.java Guard.java HospitalTest.java`
-   - `java HospitalTest`
+## Cómo usarlo
+- Graba el audio de corrido, a un ritmo cómodo. Apunta a 1:15 a 1:45 min.
+- Los tiempos entre corchetes son solo una referencia para que tus palabras
+  coincidan con lo que va apareciendo en pantalla. No tienes que ser exacto.
+- Después me mandas el audio (.mp3, .m4a o .wav) y yo lo sincronizo con el video.
 
-## Qué decir (aprox. 2 a 3 minutos)
+## Qué se ve en pantalla (video que ya tienes)
+- 0:00 terminal vacía
+- 0:01 a 0:10 se escribe el comando `javac ...`
+- 0:10 compila, sin errores
+- 0:11 a 0:13 se escribe `java HospitalTest`
+- 0:13 a 0:17 aparece la salida
+- 0:17 en adelante queda la salida completa en pantalla
 
-**1. Presentación (15 s).**
-"Hola, soy José Manuel Rodríguez Cantú. Esta es la evidencia de la Activity 3:
-el diseño de una jerarquía de clases para un sistema de un hospital."
+## Narración
 
-**2. Diseño de las clases (45 s).**
-"Tengo una clase abstracta Person con los datos comunes, nombre y edad, y un
-método abstracto register. De ella heredan tres subclases: Doctor, que agrega
-el departamento; Patient, que agrega la enfermedad; y Guard, que agrega el
-turno y, de forma opcional, un teléfono. Cada subclase reutiliza el
-constructor de Person con super, y cada una implementa su propio register.
-Guard tiene dos constructores sobrecargados: uno con teléfono y otro sin él."
+**[0:00, terminal vacía]**
+"Hola, soy José Manuel Rodríguez Cantú. Les muestro la evidencia de la
+Activity 3, el diseño de una jerarquía de clases para el sistema de un
+hospital en Java."
 
-**3. Compilación (20 s).**
-Ejecuta `javac ...` y di:
-"Compilo los cinco archivos con javac. No aparece ningún error ni advertencia."
+**[~0:04, mientras se escribe el comando javac]**
+"Primero compilo las cinco clases del proyecto con javac: Person, Doctor,
+Patient, Guard y la clase de prueba, HospitalTest."
 
-**4. Ejecución y explicación de la salida (60 s).**
-Ejecuta `java HospitalTest` y explica:
-"Al correr el programa se crean cuatro personas. El Doctor Joseph, de 41 años,
-del departamento de Neurología, imprime Welcome Doctor. El paciente Richard,
-de 78 años, con Chronic Headache, imprime Welcome Patient. El guardia John, de
-39 años, turno Morning, se crea con el constructor de tres parámetros, así que
-su teléfono aparece como not provided. El guardia Kevin, de 43 años, turno
-Afternoon, se crea con el constructor de cuatro parámetros y sí muestra su
-teléfono. Cada persona imprime un saludo distinto porque register está
-sobrescrito en cada subclase, que es el polimorfismo que pedía la actividad."
+**[~0:10, cuando termina de compilar]**
+"La compilación termina sin errores ni advertencias."
 
-**5. Cierre (10 s).**
-"Con esto se demuestran la herencia, la abstracción y la sobrecarga. Gracias."
+**[~0:11, mientras se escribe java HospitalTest]**
+"Enseguida ejecuto el programa con java HospitalTest."
 
-## Salida esperada (para que verifiques que todo salió bien)
+**[~0:13, cuando aparece la salida]**
+"Y esta es la salida del programa."
+
+**[~0:17 en adelante, con toda la salida en pantalla]**
+"El diseño parte de una clase abstracta, Person, que guarda los datos
+comunes, el nombre y la edad, y define un método abstracto llamado register.
+De ella heredan tres subclases, y en la salida se ve cada una: el doctor
+Joseph, de 41 años, del departamento de Neurología; el paciente Richard, de
+78 años, con dolor de cabeza crónico; y dos guardias. El guardia John se creó
+sin teléfono, por eso aparece como not provided, mientras que Kevin se creó
+con teléfono y sí lo muestra. Ahí se ve la sobrecarga de constructores: la
+clase Guard se puede crear de dos formas. Además, cada persona imprime un
+saludo distinto, Welcome Doctor, Welcome Patient o Welcome Guard, porque cada
+subclase sobrescribe el método register, y eso es el polimorfismo. Con este
+ejercicio quedan demostradas la herencia, la abstracción y la sobrecarga.
+Gracias."
+
+## Salida esperada (para que confirmes que quedó bien)
 
 ```
 === Hospital registration system ===
