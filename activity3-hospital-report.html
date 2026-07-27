@@ -65,148 +65,205 @@
   </section>
 
   <h2>1. Description of the solution</h2>
-  <p>This activity models the people of a regional hospital with an object-oriented class hierarchy. The design rests on the three ideas the activity asks for: inheritance, abstraction and overloading. There are five files: the abstract class <strong>Person</strong>, its three subclasses <strong>Doctor</strong>, <strong>Patient</strong> and <strong>Guard</strong>, and a test program that creates one of each and registers them.</p>
-  <p><strong>Person</strong> is an abstract superclass. It stores the two data fields every person shares, <strong>name</strong> and <strong>age</strong>, and exposes them through <em>getName</em> and <em>getAge</em>. It also declares an abstract method, <em>register</em>, with no body. Because the class is abstract it cannot be created on its own; it only serves as the common base for the specific people. That is abstraction: the shared idea of a person lives in one place and each subclass fills in the rest.</p>
-  <p><strong>Doctor</strong>, <strong>Patient</strong> and <strong>Guard</strong> extend Person, so they inherit name, age and their getters. Each subclass adds only what makes it different: Doctor adds a department, Patient adds an illness, and Guard adds a shift and an optional phone. Every subclass constructor calls <em>super(name, age)</em>, so the shared data is set by the Person constructor instead of being repeated in each class.</p>
-  <p>Each subclass writes its own <em>register</em> method. When register is called, Java runs the version that belongs to the real object, so a Doctor prints "Welcome Doctor!", a Patient prints "Welcome Patient!" and a Guard prints "Welcome Guard!". This is the idea from the learning goal, different people performing the same activity in their own way, and in Java it is called polymorphism.</p>
-  <p><strong>Guard</strong> shows overloading with two constructors: one receives a phone number and the other does not. The shorter constructor calls the longer one with <em>this(name, age, shift, null)</em>, so the setup code is written a single time and a guard can be created either way. The test uses John, created without a phone, and Kevin, created with one, to exercise both constructors.</p>
+  <p>This activity models the different people found in a regional hospital with an object-oriented class hierarchy. The design rests on the three ideas the activity asks for: inheritance, abstraction and overloading. There are five files: the abstract class <strong>Person</strong>, its three subclasses <strong>Doctor</strong>, <strong>Patient</strong> and <strong>Guard</strong>, and a test program that creates a doctor, a patient and two guards, then registers each one.</p>
+  <p><strong>Person</strong> is an abstract superclass. It stores the two data fields every person shares, <strong>name</strong> and <strong>age</strong>, and exposes them through <em>getName</em> and <em>getAge</em>. It also declares an abstract method, <em>register</em>, with no body. Because the class is abstract it cannot be instantiated on its own; it only serves as the common base for the specific people. That is abstraction: the shared idea of a person lives in one place and each subclass fills in the rest.</p>
+  <p><strong>Doctor</strong>, <strong>Patient</strong> and <strong>Guard</strong> extend Person, so they inherit name, age and their getters. Each subclass adds only what makes it different: Doctor adds a department, Patient adds an illness, and Guard adds a shift and an optional phone. Each subclass reuses the Person constructor through <em>super(name, age)</em>, and the Guard's short constructor reaches it by chaining, so the shared data is set in one place instead of being repeated in each class.</p>
+  <p>Each subclass overrides <em>register</em> with its own version. When register is called, Java runs the version that belongs to the real object, so a Doctor prints "Welcome Doctor!", a Patient prints "Welcome Patient!" and a Guard prints "Welcome Guard!". This matches the learning goal: different people performing the same action in their own way, which in Java is called polymorphism.</p>
+  <p><strong>Guard</strong> shows overloading with two constructors: one receives a phone number and the other does not. The shorter constructor calls the longer one with <em>this(name, age, shift, null)</em>, so the setup code is written only once and a guard can be created either way. The test uses John, created without a phone, and Kevin, created with one, to exercise both constructors.</p>
 
   <h2>2. Source code</h2>
   <div class="filetag">Person.java</div>
-  <div class="code"><span class="cm">// Abstract superclass shared by every person in the hospital system.</span>
-<span class="kw">public abstract class</span> <span class="fn">Person</span> {
+  <div class="code"><span class="cm">/**</span>
+ <span class="cm">* Person.java</span>
+ <span class="cm">* Abstract superclass for every person in the hospital system.</span>
+ <span class="cm">* It keeps the data and behavior shared by doctors, patients and guards,</span>
+ <span class="cm">* so that common code lives in a single place (abstraction + inheritance).</span>
+ <span class="cm">* Object Oriented Programming - Module 3, Activity 3.</span>
+ <span class="cm">*/</span>
+<span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Person {
+    <span class="cm">// Data fields shared by every person</span>
     <span class="kw">private</span> String name; <span class="cm">// the person's name</span>
     <span class="kw">private</span> <span class="kw">int</span> age;     <span class="cm">// the person's age in years</span>
 
-    <span class="cm">// Sets the name and age common to every person.</span>
-    <span class="kw">public</span> <span class="fn">Person</span>(String nameP, <span class="kw">int</span> ageP) {
+    <span class="cm">/** Constructor that sets the name and age common to every person. */</span>
+    <span class="kw">public</span> Person(String nameP, <span class="kw">int</span> ageP) {
         <span class="kw">this</span>.name = nameP;
         <span class="kw">this</span>.age = ageP;
     }
 
-    <span class="kw">public</span> String <span class="fn">getName</span>() { <span class="kw">return</span> name; }
-    <span class="kw">public</span> <span class="kw">int</span> <span class="fn">getAge</span>() { <span class="kw">return</span> age; }
+    <span class="cm">/** Returns the person's name. */</span>
+    <span class="kw">public</span> String getName() {
+        <span class="kw">return</span> name;
+    }
 
-    <span class="cm">// Each subclass greets its own kind of person, so this stays abstract.</span>
-    <span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">void</span> <span class="fn">register</span>();
+    <span class="cm">/** Returns the person's age. */</span>
+    <span class="kw">public</span> <span class="kw">int</span> getAge() {
+        <span class="kw">return</span> age;
+    }
+
+    <span class="cm">/**</span>
+     <span class="cm">* Registers the person in the system. Each subclass greets its own kind</span>
+     <span class="cm">* of person in its own way, so the method is abstract and every subclass</span>
+     <span class="cm">* must provide its own version.</span>
+     <span class="cm">*/</span>
+    <span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">void</span> register();
 }</div>
 
   <div class="filetag">Doctor.java</div>
-  <div class="code"><span class="cm">// A doctor is a Person who also belongs to a medical department.</span>
-<span class="kw">public class</span> <span class="fn">Doctor</span> <span class="kw">extends</span> <span class="fn">Person</span> {
+  <div class="code"><span class="cm">/**</span>
+ <span class="cm">* Doctor.java</span>
+ <span class="cm">* A doctor is a Person who also belongs to a medical department.</span>
+ <span class="cm">* Object Oriented Programming - Module 3, Activity 3.</span>
+ <span class="cm">*/</span>
+<span class="kw">public</span> <span class="kw">class</span> Doctor <span class="kw">extends</span> Person {
     <span class="kw">private</span> String department; <span class="cm">// the department the doctor works in</span>
 
-    <span class="cm">// Creates a doctor with a name, an age and a department.</span>
-    <span class="kw">public</span> <span class="fn">Doctor</span>(String nameD, <span class="kw">int</span> ageD, String departmentD) {
+    <span class="cm">/** Creates a doctor with a name, an age and a department. */</span>
+    <span class="kw">public</span> Doctor(String nameD, <span class="kw">int</span> ageD, String departmentD) {
         <span class="kw">super</span>(nameD, ageD); <span class="cm">// reuse the Person constructor for the shared data</span>
         <span class="kw">this</span>.department = departmentD;
     }
 
-    <span class="kw">public</span> String <span class="fn">getDepartment</span>() { <span class="kw">return</span> department; }
+    <span class="cm">/** Returns the doctor's department. */</span>
+    <span class="kw">public</span> String getDepartment() {
+        <span class="kw">return</span> department;
+    }
 
+    <span class="cm">/** Greets the doctor when registering. */</span>
     <span class="an">@Override</span>
-    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">register</span>() {
-        System.out.<span class="fn">println</span>(<span class="st">"Welcome Doctor!"</span>);
+    <span class="kw">public</span> <span class="kw">void</span> register() {
+        System.out.println(<span class="st">"Welcome Doctor!"</span>);
     }
 }</div>
 
   <div class="filetag">Patient.java</div>
-  <div class="code"><span class="cm">// A patient is a Person who is admitted with a certain illness.</span>
-<span class="kw">public class</span> <span class="fn">Patient</span> <span class="kw">extends</span> <span class="fn">Person</span> {
+  <div class="code"><span class="cm">/**</span>
+ <span class="cm">* Patient.java</span>
+ <span class="cm">* A patient is a Person who is admitted with a certain illness.</span>
+ <span class="cm">* Object Oriented Programming - Module 3, Activity 3.</span>
+ <span class="cm">*/</span>
+<span class="kw">public</span> <span class="kw">class</span> Patient <span class="kw">extends</span> Person {
     <span class="kw">private</span> String illness; <span class="cm">// the illness the patient is treated for</span>
 
-    <span class="cm">// Creates a patient with a name, an age and an illness.</span>
-    <span class="kw">public</span> <span class="fn">Patient</span>(String nameP, <span class="kw">int</span> ageP, String illnessP) {
+    <span class="cm">/** Creates a patient with a name, an age and an illness. */</span>
+    <span class="kw">public</span> Patient(String nameP, <span class="kw">int</span> ageP, String illnessP) {
         <span class="kw">super</span>(nameP, ageP); <span class="cm">// reuse the Person constructor for the shared data</span>
         <span class="kw">this</span>.illness = illnessP;
     }
 
-    <span class="kw">public</span> String <span class="fn">getIllness</span>() { <span class="kw">return</span> illness; }
+    <span class="cm">/** Returns the patient's illness. */</span>
+    <span class="kw">public</span> String getIllness() {
+        <span class="kw">return</span> illness;
+    }
 
+    <span class="cm">/** Greets the patient when registering. */</span>
     <span class="an">@Override</span>
-    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">register</span>() {
-        System.out.<span class="fn">println</span>(<span class="st">"Welcome Patient!"</span>);
+    <span class="kw">public</span> <span class="kw">void</span> register() {
+        System.out.println(<span class="st">"Welcome Patient!"</span>);
     }
 }</div>
 
   <div class="filetag">Guard.java</div>
-  <div class="code"><span class="cm">// A guard is a Person who covers a shift and may have a contact phone.</span>
-<span class="cm">// It shows constructor overloading: with or without a phone number.</span>
-<span class="kw">public class</span> <span class="fn">Guard</span> <span class="kw">extends</span> <span class="fn">Person</span> {
+  <div class="code"><span class="cm">/**</span>
+ <span class="cm">* Guard.java</span>
+ <span class="cm">* A guard is a Person who covers a shift and may have a contact phone.</span>
+ <span class="cm">* This class shows constructor overloading: a guard can be created with or</span>
+ <span class="cm">* without a phone number, and the shorter constructor reuses the longer one.</span>
+ <span class="cm">* Object Oriented Programming - Module 3, Activity 3.</span>
+ <span class="cm">*/</span>
+<span class="kw">public</span> <span class="kw">class</span> Guard <span class="kw">extends</span> Person {
     <span class="kw">private</span> String shift; <span class="cm">// the shift the guard covers (for example, Morning)</span>
     <span class="kw">private</span> String phone; <span class="cm">// the guard's contact phone (optional)</span>
 
-    <span class="cm">// Guard without a phone: reuses the other constructor passing null.</span>
-    <span class="kw">public</span> <span class="fn">Guard</span>(String nameG, <span class="kw">int</span> ageG, String shiftG) {
+    <span class="cm">/**</span>
+     <span class="cm">* Creates a guard without a phone number. It calls the other constructor</span>
+     <span class="cm">* with null as the phone, so the setup code is written only once.</span>
+     <span class="cm">*/</span>
+    <span class="kw">public</span> Guard(String nameG, <span class="kw">int</span> ageG, String shiftG) {
         <span class="kw">this</span>(nameG, ageG, shiftG, <span class="kw">null</span>); <span class="cm">// constructor chaining (overloading)</span>
     }
 
-    <span class="cm">// Guard with a phone number.</span>
-    <span class="kw">public</span> <span class="fn">Guard</span>(String nameG, <span class="kw">int</span> ageG, String shiftG, String phoneG) {
+    <span class="cm">/** Creates a guard with a phone number. */</span>
+    <span class="kw">public</span> Guard(String nameG, <span class="kw">int</span> ageG, String shiftG, String phoneG) {
         <span class="kw">super</span>(nameG, ageG); <span class="cm">// reuse the Person constructor for the shared data</span>
         <span class="kw">this</span>.shift = shiftG;
         <span class="kw">this</span>.phone = phoneG;
     }
 
-    <span class="kw">public</span> String <span class="fn">getShift</span>() { <span class="kw">return</span> shift; }
-    <span class="kw">public</span> String <span class="fn">getPhone</span>() { <span class="kw">return</span> phone; }
+    <span class="cm">/** Returns the guard's shift. */</span>
+    <span class="kw">public</span> String getShift() {
+        <span class="kw">return</span> shift;
+    }
 
+    <span class="cm">/** Returns the guard's phone, or null if none was provided. */</span>
+    <span class="kw">public</span> String getPhone() {
+        <span class="kw">return</span> phone;
+    }
+
+    <span class="cm">/** Greets the guard when registering. */</span>
     <span class="an">@Override</span>
-    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">register</span>() {
-        System.out.<span class="fn">println</span>(<span class="st">"Welcome Guard!"</span>);
+    <span class="kw">public</span> <span class="kw">void</span> register() {
+        System.out.println(<span class="st">"Welcome Guard!"</span>);
     }
 }</div>
 
   <div class="filetag">HospitalTest.java</div>
-  <div class="code"><span class="cm">// Test program: creates the four requested people and registers each one.</span>
-<span class="kw">public class</span> <span class="fn">HospitalTest</span> {
-    <span class="kw">public static</span> <span class="kw">void</span> <span class="fn">main</span>(String[] args) {
+  <div class="code"><span class="cm">/**</span>
+ <span class="cm">* HospitalTest.java</span>
+ <span class="cm">* Test program for the hospital class hierarchy. It creates the four people</span>
+ <span class="cm">* requested in the activity and registers each one. The Guard cases show the</span>
+ <span class="cm">* two overloaded constructors: John is created without a phone and Kevin with</span>
+ <span class="cm">* a phone.</span>
+ <span class="cm">* Object Oriented Programming - Module 3, Activity 3.</span>
+ <span class="cm">*/</span>
+<span class="kw">public</span> <span class="kw">class</span> HospitalTest {
+    <span class="kw">public</span> <span class="kw">static</span> <span class="kw">void</span> main(String[] args) {
         <span class="cm">// Test data requested in the activity</span>
-        Doctor doctor = <span class="kw">new</span> <span class="fn">Doctor</span>(<span class="st">"Joseph"</span>, <span class="st">41</span>, <span class="st">"Neurologist"</span>);
-        Patient patient = <span class="kw">new</span> <span class="fn">Patient</span>(<span class="st">"Richard"</span>, <span class="st">78</span>, <span class="st">"Chronic Headache"</span>);
-        Guard guardNoPhone = <span class="kw">new</span> <span class="fn">Guard</span>(<span class="st">"John"</span>, <span class="st">39</span>, <span class="st">"Morning"</span>);                        <span class="cm">// 3-arg constructor</span>
-        Guard guardWithPhone = <span class="kw">new</span> <span class="fn">Guard</span>(<span class="st">"Kevin"</span>, <span class="st">43</span>, <span class="st">"Afternoon"</span>, <span class="st">"+52 232 456345"</span>); <span class="cm">// 4-arg constructor</span>
+        Doctor doctor = <span class="kw">new</span> Doctor(<span class="st">"Joseph"</span>, 41, <span class="st">"Neurologist"</span>);
+        Patient patient = <span class="kw">new</span> Patient(<span class="st">"Richard"</span>, 78, <span class="st">"Chronic Headache"</span>);
+        Guard guardNoPhone = <span class="kw">new</span> Guard(<span class="st">"John"</span>, 39, <span class="st">"Morning"</span>);                        <span class="cm">// 3-argument constructor</span>
+        Guard guardWithPhone = <span class="kw">new</span> Guard(<span class="st">"Kevin"</span>, 43, <span class="st">"Afternoon"</span>, <span class="st">"+52 232 456345"</span>); <span class="cm">// 4-argument constructor</span>
 
-        System.out.<span class="fn">println</span>(<span class="st">"=== Hospital registration system ==="</span>);
+        System.out.println(<span class="st">"=== Hospital registration system ==="</span>);
 
         <span class="cm">// Doctor</span>
-        System.out.<span class="fn">println</span>();
-        System.out.<span class="fn">println</span>(<span class="st">"Doctor"</span>);
-        System.out.<span class="fn">println</span>(<span class="st">"  Name: "</span> + doctor.<span class="fn">getName</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Age: "</span> + doctor.<span class="fn">getAge</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Department: "</span> + doctor.<span class="fn">getDepartment</span>());
-        doctor.<span class="fn">register</span>();
+        System.out.println();
+        System.out.println(<span class="st">"Doctor"</span>);
+        System.out.println(<span class="st">"  Name: "</span> + doctor.getName());
+        System.out.println(<span class="st">"  Age: "</span> + doctor.getAge());
+        System.out.println(<span class="st">"  Department: "</span> + doctor.getDepartment());
+        doctor.register();
 
         <span class="cm">// Patient</span>
-        System.out.<span class="fn">println</span>();
-        System.out.<span class="fn">println</span>(<span class="st">"Patient"</span>);
-        System.out.<span class="fn">println</span>(<span class="st">"  Name: "</span> + patient.<span class="fn">getName</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Age: "</span> + patient.<span class="fn">getAge</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Illness: "</span> + patient.<span class="fn">getIllness</span>());
-        patient.<span class="fn">register</span>();
+        System.out.println();
+        System.out.println(<span class="st">"Patient"</span>);
+        System.out.println(<span class="st">"  Name: "</span> + patient.getName());
+        System.out.println(<span class="st">"  Age: "</span> + patient.getAge());
+        System.out.println(<span class="st">"  Illness: "</span> + patient.getIllness());
+        patient.register();
 
-        <span class="cm">// Guard without a phone (shorter overloaded constructor)</span>
-        System.out.<span class="fn">println</span>();
-        System.out.<span class="fn">println</span>(<span class="st">"Guard"</span>);
-        System.out.<span class="fn">println</span>(<span class="st">"  Name: "</span> + guardNoPhone.<span class="fn">getName</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Age: "</span> + guardNoPhone.<span class="fn">getAge</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Shift: "</span> + guardNoPhone.<span class="fn">getShift</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Phone: "</span> + (guardNoPhone.<span class="fn">getPhone</span>() == <span class="kw">null</span> ? <span class="st">"not provided"</span> : guardNoPhone.<span class="fn">getPhone</span>()));
-        guardNoPhone.<span class="fn">register</span>();
+        <span class="cm">// Guard created without a phone (shorter overloaded constructor)</span>
+        System.out.println();
+        System.out.println(<span class="st">"Guard"</span>);
+        System.out.println(<span class="st">"  Name: "</span> + guardNoPhone.getName());
+        System.out.println(<span class="st">"  Age: "</span> + guardNoPhone.getAge());
+        System.out.println(<span class="st">"  Shift: "</span> + guardNoPhone.getShift());
+        System.out.println(<span class="st">"  Phone: "</span> + (guardNoPhone.getPhone() == <span class="kw">null</span> ? <span class="st">"not provided"</span> : guardNoPhone.getPhone()));
+        guardNoPhone.register();
 
-        <span class="cm">// Guard with a phone (longer overloaded constructor)</span>
-        System.out.<span class="fn">println</span>();
-        System.out.<span class="fn">println</span>(<span class="st">"Guard"</span>);
-        System.out.<span class="fn">println</span>(<span class="st">"  Name: "</span> + guardWithPhone.<span class="fn">getName</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Age: "</span> + guardWithPhone.<span class="fn">getAge</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Shift: "</span> + guardWithPhone.<span class="fn">getShift</span>());
-        System.out.<span class="fn">println</span>(<span class="st">"  Phone: "</span> + (guardWithPhone.<span class="fn">getPhone</span>() == <span class="kw">null</span> ? <span class="st">"not provided"</span> : guardWithPhone.<span class="fn">getPhone</span>()));
-        guardWithPhone.<span class="fn">register</span>();
+        <span class="cm">// Guard created with a phone (longer overloaded constructor)</span>
+        System.out.println();
+        System.out.println(<span class="st">"Guard"</span>);
+        System.out.println(<span class="st">"  Name: "</span> + guardWithPhone.getName());
+        System.out.println(<span class="st">"  Age: "</span> + guardWithPhone.getAge());
+        System.out.println(<span class="st">"  Shift: "</span> + guardWithPhone.getShift());
+        System.out.println(<span class="st">"  Phone: "</span> + (guardWithPhone.getPhone() == <span class="kw">null</span> ? <span class="st">"not provided"</span> : guardWithPhone.getPhone()));
+        guardWithPhone.register();
     }
 }</div>
 
   <h2>3. Execution evidence</h2>
-  <p>The five files compile with <span style="font-family:ui-monospace,Consolas,monospace">javac</span> without errors or warnings, and the test program prints the data of the four people together with the welcome message produced by each <span style="font-family:ui-monospace,Consolas,monospace">register</span> method. John, built with the three-argument constructor, shows "not provided" as phone, while Kevin, built with the four-argument constructor, shows his number. The screenshot shows the compilation and the run:</p>
+  <p>The five files compile with <span style="font-family:ui-monospace,Consolas,monospace">javac</span> without errors or warnings, and the test program prints the data of the four people together with the welcome message produced by each <span style="font-family:ui-monospace,Consolas,monospace">register</span> method. John, built with the three-argument constructor, shows "not provided" for the phone, while Kevin, built with the four-argument constructor, displays his number. The terminal output below shows the compilation and the run:</p>
   <div class="term" id="terminal">
     <div class="bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span></div>
 <pre><span class="cmd">$ javac Person.java Doctor.java Patient.java Guard.java HospitalTest.java</span>
