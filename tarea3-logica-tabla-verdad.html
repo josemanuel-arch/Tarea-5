@@ -68,22 +68,22 @@
   <h1 class="title">Análisis lógico de una puerta electrónica: tabla de verdad y función de salida</h1>
 
   <h2>1. Análisis del problema</h2>
-  <p>El propósito de esta tarea es aplicar los elementos de la lógica a una situación real. Una granja necesita una puerta electrónica que se abra solo con una combinación específica de tres botones, identificados como A, B y C. Cada botón es una entrada que toma uno de dos estados: pulsado, que representamos con 1, o en reposo, que representamos con 0. La salida del sistema es X, donde X = 1 indica que la puerta se abre y X = 0 que permanece cerrada.</p>
+  <p>En esta tarea aplicamos los elementos de la lógica a una situación real. Una granja necesita una puerta electrónica que se abra solo con una combinación específica de tres botones, identificados como A, B y C. Cada botón es una entrada que toma uno de dos estados: pulsado, que representamos con 1, o en reposo, que representamos con 0. La salida del sistema es X, donde X = 1 indica que la puerta se abre y X = 0 que permanece cerrada.</p>
   <p>La puerta se abre únicamente bajo dos condiciones:</p>
   <ul>
     <li>Condición 1: C pulsado, con A y B en reposo. Es decir, A = 0, B = 0, C = 1.</li>
     <li>Condición 2: A, B y C pulsados. Es decir, A = 1, B = 1, C = 1.</li>
   </ul>
-  <p>En cualquier otra combinación la puerta permanece cerrada. Se trata de un problema de lógica combinacional: la salida depende solo de la combinación presente de las entradas, sin estados anteriores, y puede describirse con una tabla de verdad y con una función booleana.</p>
+  <p>En cualquier otra combinación la puerta permanece cerrada. Se trata de un problema de lógica combinacional: la salida depende solo de la combinación actual de las entradas, sin depender de estados anteriores, y puede describirse con una tabla de verdad y con una función booleana.</p>
 
   <h2>2. Términos y símbolos</h2>
   <p>La función de salida se expresa con tres operadores lógicos:</p>
   <ul>
-    <li><strong>NOT</strong> (negación): invierte una entrada. Se escribe <span class="op">A'</span> y se lee "A en reposo".</li>
+    <li><strong>NOT</strong> (negación): invierte una entrada. Se escribe <span class="op">A'</span> (A negada) y vale 1 cuando A está en reposo.</li>
     <li><strong>AND</strong> (conjunción, <span class="op">·</span>): vale 1 solo cuando todas sus entradas son 1.</li>
     <li><strong>OR</strong> (disyunción, <span class="op">+</span>): vale 1 cuando al menos una de sus entradas es 1.</li>
   </ul>
-  <p>En notación de lógica proposicional, estos operadores equivalen a <span class="op">¬</span>, <span class="op">∧</span> y <span class="op">∨</span>. Cada fila de la tabla en la que X = 1 aporta un <em>minterm</em>, que es el producto (AND) de las tres entradas, cada una en su forma directa o negada. La función se arma sumando (OR) esos minterms; a esta forma se le llama <strong>suma de productos</strong>.</p>
+  <p>En notación de lógica proposicional, estos operadores equivalen a <span class="op">¬</span>, <span class="op">∧</span> y <span class="op">∨</span>. Cada fila de la tabla en la que X = 1 aporta un <em>minitérmino</em>, que es el producto (AND) de las tres entradas, cada una en su forma directa o negada. La función se forma sumando (OR) esos minitérminos; a esta forma se le llama <strong>suma de productos</strong>.</p>
 
   <h2>3. Procedimiento</h2>
   <h3>3.1 Tabla de verdad</h3>
@@ -102,7 +102,7 @@
   <div class="cap">Tabla de verdad de la puerta. Solo dos combinaciones producen X = 1.</div>
 
   <h3>3.2 Representación simbólica de la función de salida</h3>
-  <p>Las dos filas con X = 1 son (A, B, C) = (0, 0, 1) y (1, 1, 1). Sus minterms son <span class="op">A'·B'·C</span> (A y B negadas, C directa) y <span class="op">A·B·C</span>. La función de salida, como suma de productos, es:</p>
+  <p>Las dos filas con X = 1 son (A, B, C) = (0, 0, 1) y (1, 1, 1). Sus minitérminos son <span class="op">A'·B'·C</span> (A y B negadas, C directa) y <span class="op">A·B·C</span>. La función de salida, como suma de productos, es:</p>
   <div class="formula">X = A'·B'·C + A·B·C</div>
 
   <h3>3.3 Simplificación</h3>
@@ -112,7 +112,7 @@
   <div class="formula">X = C·(A ≡ B)</div>
 
   <h3>3.4 Traducción al lenguaje natural</h3>
-  <p>La función <span class="op">X = A'·B'·C + A·B·C</span> se lee así: la puerta se abre cuando A está en reposo y B está en reposo y C está pulsado, o bien cuando A, B y C están pulsados. En su forma simplificada, la puerta se abre siempre que C esté pulsado y, además, A y B se encuentren en el mismo estado.</p>
+  <p>La función <span class="op">X = A'·B'·C + A·B·C</span> se lee así: la puerta se abre cuando A y B están en reposo y C está pulsado, o bien cuando A, B y C están pulsados. En su forma simplificada, la puerta se abre siempre que C esté pulsado y, además, A y B se encuentren en el mismo estado.</p>
 
   <h2>4. Resultados</h2>
   <ul>
@@ -122,11 +122,11 @@
   </ul>
 
   <h2>5. Interpretación del resultado</h2>
-  <p>De las 8 combinaciones posibles, solo 2 abren la puerta, es decir, el 25 %. El botón C es una condición necesaria: si C está en reposo, la puerta nunca abre. Además, A y B deben coincidir entre sí. Este comportamiento se puede construir con compuertas lógicas: dos compuertas AND (una con las entradas negadas A', B' junto con C, y otra con A, B y C) unidas por una compuerta OR; o, de forma más compacta, con una compuerta XNOR entre A y B seguida de una AND con C.</p>
+  <p>De las 8 combinaciones posibles, solo 2 abren la puerta, es decir, el 25 %. El botón C es una condición necesaria: si C está en reposo, la puerta nunca se abre. Además, A y B deben coincidir entre sí. Este comportamiento se puede construir con compuertas lógicas: dos compuertas AND (una con las entradas negadas A', B' junto con C, y otra con A, B y C) unidas por una compuerta OR; o, de forma más compacta, con una compuerta XNOR entre A y B seguida de una AND con C.</p>
   <p>El ejercicio muestra el recorrido completo de la lógica aplicada: una regla descrita en lenguaje cotidiano ("la puerta abre con estas pulsaciones") se convierte en una tabla de verdad, luego en una función booleana y, de vuelta, en una descripción en lenguaje natural, que es la que entendería cualquier persona.</p>
 
   <h2>6. Conclusión</h2>
-  <p>La lógica permite traducir una regla de la vida diaria, cuándo debe abrirse una puerta, a un modelo formal y verificable. A partir de las condiciones de apertura se obtuvo la tabla de verdad; de ella, la función <span class="op">X = A'·B'·C + A·B·C</span> y su forma simplificada <span class="op">X = C·(A ≡ B)</span>; y de la función, una traducción al lenguaje natural. El mismo procedimiento sirve para diseñar cualquier circuito combinacional a partir de su especificación.</p>
+  <p>La lógica permite traducir una regla de la vida diaria (cuándo debe abrirse una puerta) a un modelo formal y verificable. A partir de las condiciones de apertura se obtuvo la tabla de verdad; de ella, la función <span class="op">X = A'·B'·C + A·B·C</span> y su forma simplificada <span class="op">X = C·(A ≡ B)</span>; y de la función, una traducción al lenguaje natural. El mismo procedimiento sirve para diseñar cualquier circuito combinacional a partir de su especificación.</p>
 
   <div style="page-break-before:always"></div>
   <h2>Fuentes de consulta</h2>
