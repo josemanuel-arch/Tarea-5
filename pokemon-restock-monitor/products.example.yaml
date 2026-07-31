@@ -1,0 +1,53 @@
+# Lista de productos a vigilar.
+# Copia este archivo a "products.yaml" y edítalo con TUS URLs reales.
+#   cp products.example.yaml products.yaml
+#
+# Cómo obtener la URL: abre la página del producto en la tienda y copia el link
+# de la barra de direcciones. Funciona con cualquier dominio (amazon.com,
+# amazon.com.mx, etc.).
+
+defaults:
+  interval_seconds: 90    # cada cuánto revisar cada producto (mín. 30)
+  jitter_seconds: 30      # variación aleatoria para no tener un patrón fijo
+  timeout_seconds: 20
+
+products:
+  # --- Ascended Heroes (ejemplos con ASIN real de Amazon.com; verifica el tuyo) ---
+  - name: "Ascended Heroes · Elite Trainer Box"
+    url: "https://www.amazon.com/dp/B0G3CY83L5"
+    retailer: amazon
+    price: "$59.99 MSRP"
+
+  - name: "Ascended Heroes · Booster Bundle"
+    url: "https://www.amazon.com/dp/B0G3CV6Z9D"
+    retailer: amazon
+    price: "$26.99 MSRP"
+
+  # --- Pokémon Center (fuente a MSRP; única del ETB exclusivo de 11 sobres) ---
+  - name: "Ascended Heroes · Booster Bundle (Pokémon Center)"
+    url: "https://www.pokemoncenter.com/product/10-10311-114/pokemon-tcg-mega-evolution-ascended-heroes-booster-bundle-6-packs"
+    retailer: pokemoncenter
+    price: "$26.99"
+    interval_seconds: 60
+
+  # --- Prismatic Evolutions (Best Buy usa invitación; igual conviene vigilar) ---
+  - name: "Prismatic Evolutions · Accessory Pouch SPC (Best Buy)"
+    url: "https://www.bestbuy.com/product/pokemon-trading-card-game-scarlet-violet-prismatic-evolutions-accessory-pouch-special-collection/JJG2TL23CJ"
+    retailer: bestbuy
+    price: "$29.99 MSRP"
+
+  # --- 30th Celebration (sale 16 sep 2026; vigila la página oficial de la tienda) ---
+  - name: "30th Celebration · Ultra-Premium Collection (GameStop)"
+    url: "https://www.gamestop.com/toys-games/trading-cards/products/pokemon-trading-card-game-30th-celebration-ultra-premium-collection-styles-may-vary/20036364.html"
+    retailer: gamestop
+    price: "$179.99 MSRP"
+
+  # --- Ejemplo con señales personalizadas ---
+  # Si la detección automática falla en una tienda, define tú las señales de
+  # texto que aparecen cuando el producto está disponible o agotado:
+  #
+  # - name: "Producto X"
+  #   url: "https://tienda.example.com/producto-x"
+  #   retailer: generic
+  #   in_signals: ["Agregar al carrito"]
+  #   out_signals: ["Agotado", "Sin existencias"]
