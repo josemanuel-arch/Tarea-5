@@ -1,53 +1,63 @@
-# Lista de productos a vigilar.
-# Copia este archivo a "products.yaml" y edítalo con TUS URLs reales.
+# Lista de productos a vigilar (MÉXICO).
+# Copia este archivo a "products.yaml" y edítalo con TUS URLs reales:
 #   cp products.example.yaml products.yaml
 #
-# Cómo obtener la URL: abre la página del producto en la tienda y copia el link
-# de la barra de direcciones. Funciona con cualquier dominio (amazon.com,
-# amazon.com.mx, etc.).
+# Abre el producto en la tienda y copia el link de la barra de direcciones.
+#
+# Campos:
+#   name       -> cómo se llama en la alerta
+#   url        -> link del PRODUCTO (no de la categoría)
+#   retailer   -> amazon | walmart | liverpool | sanborns | sears | costco |
+#                 juguetron | juguetibici | gameplanet | delsol | coppel |
+#                 mercadolibre | shopify | woocommerce | generic
+#   platform   -> (opcional) shopify | none. Fuerza o desactiva el modo Shopify.
+#                 Con Shopify, el monitor usa el endpoint /products/<handle>.js
+#                 (dato de stock oficial de la tienda; lo más fiable).
+#   price      -> (opcional) solo informativo, para verlo en la alerta
 
 defaults:
-  interval_seconds: 90    # cada cuánto revisar cada producto (mín. 30)
-  jitter_seconds: 30      # variación aleatoria para no tener un patrón fijo
+  interval_seconds: 120   # cada cuánto revisar cada producto (mín. 30)
+  jitter_seconds: 40      # variación aleatoria, para no tener patrón fijo
   timeout_seconds: 20
 
 products:
-  # --- Ascended Heroes (ejemplos con ASIN real de Amazon.com; verifica el tuyo) ---
-  - name: "Ascended Heroes · Elite Trainer Box"
-    url: "https://www.amazon.com/dp/B0G3CY83L5"
+  # === Amazon México (preventa a MSRP; el mejor canal con protección) ===
+  - name: "30th Celebration · Elite Trainer Box (Amazon MX preventa)"
+    url: "https://www.amazon.com.mx/dp/B0H78BB9TY"
     retailer: amazon
-    price: "$59.99 MSRP"
+    price: "$1,099 MXN · sale 16 sep 2026"
 
-  - name: "Ascended Heroes · Booster Bundle"
-    url: "https://www.amazon.com/dp/B0G3CV6Z9D"
+  - name: "Prismatic Evolutions · Elite Trainer Box (Amazon MX)"
+    url: "https://www.amazon.com.mx/dp/B0DLPL7LC5"
     retailer: amazon
-    price: "$26.99 MSRP"
+    price: "~$845 MXN"
 
-  # --- Pokémon Center (fuente a MSRP; única del ETB exclusivo de 11 sobres) ---
-  - name: "Ascended Heroes · Booster Bundle (Pokémon Center)"
-    url: "https://www.pokemoncenter.com/product/10-10311-114/pokemon-tcg-mega-evolution-ascended-heroes-booster-bundle-6-packs"
-    retailer: pokemoncenter
-    price: "$26.99"
-    interval_seconds: 60
+  - name: "Prismatic Evolutions · Booster Bundle (Amazon MX)"
+    url: "https://www.amazon.com.mx/dp/B0DN98RVZM"
+    retailer: amazon
+    price: "restock"
 
-  # --- Prismatic Evolutions (Best Buy usa invitación; igual conviene vigilar) ---
-  - name: "Prismatic Evolutions · Accessory Pouch SPC (Best Buy)"
-    url: "https://www.bestbuy.com/product/pokemon-trading-card-game-scarlet-violet-prismatic-evolutions-accessory-pouch-special-collection/JJG2TL23CJ"
-    retailer: bestbuy
-    price: "$29.99 MSRP"
+  # === Tienda especializada Shopify (detección por endpoint .js, muy fiable) ===
+  # Pega la URL real del producto; el modo Shopify se activa solo al ver /products/.
+  - name: "Wunderbox · (pega aquí el producto que quieras)"
+    url: "https://www.wunderbox.com.mx/products/EL-HANDLE-REAL"
+    retailer: shopify
+    price: "preventa MSRP"
 
-  # --- 30th Celebration (sale 16 sep 2026; vigila la página oficial de la tienda) ---
-  - name: "30th Celebration · Ultra-Premium Collection (GameStop)"
-    url: "https://www.gamestop.com/toys-games/trading-cards/products/pokemon-trading-card-game-30th-celebration-ultra-premium-collection-styles-may-vary/20036364.html"
-    retailer: gamestop
-    price: "$179.99 MSRP"
+  # === Sanborns / Sears (big-box confiable, mismo catálogo) ===
+  - name: "Sanborns · (pega aquí el producto)"
+    url: "https://www.sanborns.com.mx/producto/ID/EL-SLUG"
+    retailer: sanborns
+    price: "MSRP, envío gratis"
 
-  # --- Ejemplo con señales personalizadas ---
-  # Si la detección automática falla en una tienda, define tú las señales de
-  # texto que aparecen cuando el producto está disponible o agotado:
-  #
-  # - name: "Producto X"
-  #   url: "https://tienda.example.com/producto-x"
+  # === Gameplanet (WooCommerce; hace preventa) ===
+  - name: "Gameplanet · (pega aquí el producto)"
+    url: "https://gameplanet.com/producto/EL-SLUG/"
+    retailer: gameplanet
+
+  # === Señales personalizadas (si una tienda rara falla en la detección) ===
+  # - name: "Tienda X"
+  #   url: "https://tienda-x.mx/producto/y"
   #   retailer: generic
   #   in_signals: ["Agregar al carrito"]
   #   out_signals: ["Agotado", "Sin existencias"]
