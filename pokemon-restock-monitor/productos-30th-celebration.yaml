@@ -1,0 +1,169 @@
+# 30th Celebration (Español 🇪🇸) — Amazon México · lista completa
+# =============================================================================
+# IMPORTANTE — lee esto o no funcionará:
+#
+# Los links que compartiste son cortos (https://link.amazon/XXXXX) y NO se pueden
+# descargar directamente: hay que convertirlos al link COMPLETO del producto.
+# Para cada producto, ábrelo una vez en el navegador y copia la URL final, que
+# se ve así:   https://www.amazon.com.mx/dp/B0XXXXXXXX
+# Pega esa URL en el campo `url:` de aquí abajo (reemplaza el link.amazon/...).
+#
+# OJO: Amazon MX bloquea seguido el scraping. Para Amazon, la alerta MÁS confiable
+# es KEEPA (gratis) — ver el README y RECURSOS-MEXICO.md. Este archivo es la capa
+# extra/personalizable; úsalo junto con Keepa, no en lugar de.
+#
+# Uso:  python3 monitor.py --config productos-30th-celebration.yaml
+# =============================================================================
+
+defaults:
+  interval_seconds: 120     # restocks "en horarios random desde la mañana"
+  jitter_seconds: 40
+  timeout_seconds: 20
+
+products:
+  # --- Español (ESP) ---
+  - name: "30th · Elite Trainer Box (ESP)"
+    url: "https://link.amazon/B09hRPVt3"      # ← reemplaza por https://www.amazon.com.mx/dp/ASIN
+    retailer: amazon
+    price: "$1,099 MXN"
+  - name: "30th · Binder Collection (ESP)"
+    url: "https://link.amazon/B03RbF5yS"
+    retailer: amazon
+    price: "$799 MXN"
+  - name: "30th · Figure Collection Mew/Mewtwo aleatorio (ESP)"
+    url: "https://link.amazon/B08QHq7Bl"
+    retailer: amazon
+    price: "$749 MXN"
+  - name: "30th · Booster Bundle (ESP)"
+    url: "https://link.amazon/B0dpSyIJt"
+    retailer: amazon
+    price: "$589 MXN"
+
+  # --- Elite Trainer Box / Bundle / Binder ---
+  - name: "30th · Elite Trainer Box"
+    url: "https://link.amazon/B05jYWwG5"
+    retailer: amazon
+    price: "$1,099 MXN"
+  - name: "30th · Booster Bundle"
+    url: "https://link.amazon/B0e01lo28"
+    retailer: amazon
+    price: "$589 MXN"
+  - name: "30th · Binder Collection"
+    url: "https://link.amazon/B08EP85uu"
+    retailer: amazon
+    price: "$799 MXN"
+
+  # --- Ultra-Premium Collection ---
+  - name: "30th · Ultra-Premium Collection — Night"
+    url: "https://link.amazon/B0hAQTE9x"
+    retailer: amazon
+    price: "$3,649 MXN"
+  - name: "30th · Ultra-Premium Collection — Day"
+    url: "https://link.amazon/B02c6WYHN"
+    retailer: amazon
+    price: "$3,649 MXN"
+  - name: "30th · Ultra-Premium Collection — Aleatorio"
+    url: "https://link.amazon/B08VfJstL"
+    retailer: amazon
+    price: "$3,649 MXN"
+
+  # --- Premium / Poster / Figure ---
+  - name: "30th · Ditto Premium Collection"
+    url: "https://link.amazon/B0a84tJsf"
+    retailer: amazon
+    price: "$869 MXN"
+  - name: "30th · Poster Collection (Articuno/Moltres/Zapdos)"
+    url: "https://link.amazon/B05DKnfbG"
+    retailer: amazon
+    price: "$329 MXN"
+  - name: "30th · Figure Collection — Mewtwo"
+    url: "https://link.amazon/B0e5VcilP"
+    retailer: amazon
+    price: "$749 MXN"
+  - name: "30th · Figure Collection — Mew"
+    url: "https://link.amazon/B06kmckKp"
+    retailer: amazon
+    price: "$749 MXN"
+
+  # --- Tech Sticker Collection ---
+  - name: "30th · Tech Sticker Collection"
+    url: "https://link.amazon/B0boHg4cp"
+    retailer: amazon
+    price: "$329 MXN"
+  - name: "30th · Tech Sticker Collection — Alolan Exeggutor"
+    url: "https://link.amazon/B0aNpthSi"
+    retailer: amazon
+    price: "$329 MXN"
+  - name: "30th · Tech Sticker Collection — Lucario"
+    url: "https://link.amazon/B0cZVl9uw"
+    retailer: amazon
+    price: "$329 MXN"
+
+  # --- Battle Decks ---
+  - name: "30th · Battle Deck — Umbreon ex"
+    url: "https://link.amazon/B03GjNfvA"
+    retailer: amazon
+    price: "$439 MXN"
+  - name: "30th · Battle Deck — Espeon ex"
+    url: "https://link.amazon/B05Yf9hcd"
+    retailer: amazon
+    price: "$439 MXN"
+
+  # --- Tins (ex) ---
+  - name: "30th · Tin — Sylveon ex"
+    url: "https://link.amazon/B0eDsRhpv"
+    retailer: amazon
+    price: "$489 MXN"
+  - name: "30th · Tin — Greninja ex"
+    url: "https://link.amazon/B0iAyvgbr"
+    retailer: amazon
+    price: "$489 MXN"
+  - name: "30th · Tin — Sylveon/Greninja aleatorio"
+    url: "https://link.amazon/B06IsjXOP"
+    retailer: amazon
+    price: "$489 MXN"
+  - name: "30th · Celebration Tin — Greninja ex"
+    url: "https://link.amazon/B0gl4sKjR"
+    retailer: amazon
+    price: "$489 MXN"
+  - name: "30th · Celebration Tin — Sylveon ex"
+    url: "https://link.amazon/B04NKnfZH"
+    retailer: amazon
+    price: "$489 MXN"
+
+  # --- Mini Tins ---
+  - name: "30th · Mini Tin — Moltres (Day)"
+    url: "https://link.amazon/B02UnEvrZ"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Lapras (Day)"
+    url: "https://link.amazon/B0aRyzdr4"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Pikachu (Day)"
+    url: "https://link.amazon/B03FJyg1f"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Pikachu (Night)"
+    url: "https://link.amazon/B0fiLgUCu"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Umbreon (Night)"
+    url: "https://link.amazon/B03ChmyKx"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Mew (Day)"
+    url: "https://link.amazon/B07AofHoJ"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Greninja (Night)"
+    url: "https://link.amazon/B0bx20Vw7"
+    retailer: amazon
+    price: "$239 MXN"
+  - name: "30th · Mini Tin — Zapdos (Night)"
+    url: "https://link.amazon/B098xjF9y"
+    retailer: amazon
+    price: "$239 MXN"
+
+# Enlace "todo el producto" (búsqueda/tienda, para abrir en navegador, no para el monitor):
+#   https://link.amazon/B09uOPa3g
