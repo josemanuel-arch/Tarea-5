@@ -11,7 +11,7 @@ del 1 al 56 y sin repetidos.
 | `Melate.class` | Compilado (javac 21) |
 | `melate.txt` | Ejemplo del archivo que genera el programa |
 | `guion_video_melate.md` | Guion para el video de evidencia (máx. 3 min, .mp4) |
-| `Caratula_Actividad4_Java.docx` | Carátula con el formato del curso (falta llenar materia y profesor) |
+| `Caratula_Actividad4_Java.docx` | Carátula con el formato del curso (datos completos) |
 
 ## Cómo cumple los requisitos
 
