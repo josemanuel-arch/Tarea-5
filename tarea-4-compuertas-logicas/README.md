@@ -21,8 +21,7 @@ para una granja con tres botones (A, B y C).
 
 ## Pendientes antes de entregar
 
-1. Pegar el escudo de la universidad en la parte superior de la carátula
-   (copiarlo de la tarea anterior).
-2. Grabar el video de explicación y pegar el enlace en la sección 8.
-3. Ejecutar `comprobacion_puerta_granja.m` en MATLAB para reproducir la comprobación.
-4. Revisar el documento completo y hacerlo propio antes de enviarlo.
+1. Grabar el video con `guion_video_tarea4.md` y pegar el enlace en la sección 8.
+2. Ejecutar `comprobacion_puerta_granja.m` en MATLAB para reproducir la comprobación.
+3. Revisar el documento completo y hacerlo propio antes de enviarlo.
+4. Subir el Word en Brightspace y dar clic en Enviar.
