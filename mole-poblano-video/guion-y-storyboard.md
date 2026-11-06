@@ -24,7 +24,7 @@ Léelo por bloques. Cada bloque coincide con una escena del storyboard. Los tiem
 
 **Escena 3 · Ingredientes (0:35 – 1:04)**
 
-> Let's start with the ingredients. For eight people, you need one and a half kilos of chicken or turkey. For the sauce: three kinds of dried chiles, ancho, mulato and pasilla. Then almonds, peanuts, sesame seeds and raisins. A plantain, a tomato, onion, garlic and a piece of bread. Add cinnamon, cloves, pepper and anise. And finally, a little Mexican chocolate.
+> Let's start with the ingredients. For eight people, you need one and a half kilos of chicken or turkey. For the sauce: three kinds of dried chiles, ancho, mulato and pasilla. Then almonds, peanuts, sesame seeds and raisins. A plantain, two tomatoes, onion, garlic and a piece of bread. Add cinnamon, cloves, pepper and anise. And finally, a little Mexican chocolate.
 
 **Escena 4 · Preparación (1:04 – 2:08)**
 
